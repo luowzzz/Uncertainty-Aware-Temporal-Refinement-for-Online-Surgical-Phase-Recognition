@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "config_id": "selected_mc_config_validation_v3",
+  "status": "selected_on_validation_only",
+  "selected_T": 30,
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "inference_seed": 0,
+  "selection_split": "val",
+  "validation_videos": [
+    "11",
+    "12",
+    "13",
+    "14"
+  ],
+  "test_files_read": false,
+  "reference_T": 50,
+  "nested_prefix_candidates": [
+    10,
+    20,
+    30,
+    50
+  ],
+  "selection_rule": "Select the smallest T for which every stability criterion passes for every training seed relative to the nested T=50 reference.",
+  "stability_criteria": {
+    "prediction_disagreement_rate_max": 0.01,
+    "mc_entropy_spearman_min": 0.995,
+    "mc_mutual_information_spearman_min": 0.98,
+    "error_auroc_abs_difference_max": 0.01,
+    "error_aupr_abs_difference_max": 0.01,
+    "aurc_abs_difference_max": 0.005
+  },
+  "stable_candidates": [
+    30,
+    50
+  ],
+  "error_definition": "Incorrect MC-averaged argmax prediction is positive.",
+  "score_definitions": {
+    "mc_predictive_entropy": "Entropy of the MC-mean probability.",
+    "mc_mutual_information": "Entropy of the MC-mean probability minus mean entropy of the stochastic probability samples."
+  },
+  "evidence_status": "validation-selected iterative-development evidence"
+}

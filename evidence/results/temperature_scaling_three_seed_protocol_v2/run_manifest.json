@@ -1,0 +1,102 @@
+{
+  "schema_version": 2,
+  "analysis": "three_seed_raw_logit_temperature_scaling",
+  "created_at_utc": "2026-07-22T01:15:16.421309+00:00",
+  "wall_clock_seconds": 2.4465621000053943,
+  "evidence_status": "three_seed_iterative_development_evidence_not_independent_confirmatory_test",
+  "all_required_calibration_metrics_improved_for_every_seed": true,
+  "improvement_by_metric_for_every_seed": {
+    "nll": true,
+    "brier": true,
+    "ece_15_bins": true
+  },
+  "temperature_protocol_hash_before_and_after_test_identical": true,
+  "test_used_for_temperature_fitting_or_selection": false,
+  "rq2_gate_inputs_changed": false,
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "numpy": "2.3.3",
+    "pandas": "2.3.3",
+    "scipy": "1.16.2",
+    "scikit_learn": "1.7.2",
+    "matplotlib": "3.10.6"
+  },
+  "artifacts": [
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\calibration_protocol.json",
+      "sha256": "5d0f7d6297f334ecfc9d50d9e6ad14e010cb23a8961975583d7fd401a9d33f33",
+      "size_bytes": 4413
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\temperature_per_seed.csv",
+      "sha256": "cfebbfb972e2a8f08583607af40517a5330cd3b191603da1d82013c37e704092",
+      "size_bytes": 1259
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\test_calibration_metrics_per_seed.csv",
+      "sha256": "22417dfd87c4d6420b1d829de4b7061a70b22329b50ad0a753082be04ae4e662",
+      "size_bytes": 2390
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\test_calibration_mean_std.csv",
+      "sha256": "c3e0f860f6a0b43a602550ea24c159d947839f3ca65a450f7c10b48f7ae50b5b",
+      "size_bytes": 875
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\test_calibration_metrics_per_video.csv",
+      "sha256": "4d54003812782afe07a8459346afb0b6e30ba183cece1760b1b7a9c89d03003c",
+      "size_bytes": 7421
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\test_reliability_bins_15.csv",
+      "sha256": "659f9a19268c491348a3cdbaf2e2e11679eb65834337ef0b04cdac15cdf20ca1",
+      "size_bytes": 10572
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\test_correctness_checks.csv",
+      "sha256": "c1d8400e5fb24c483e2cab1d808ec55d08c59135746a672a615cf9668c77440f",
+      "size_bytes": 510
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\README_calibration.md",
+      "sha256": "5de618c9ce4ff0868e0691a8fc562cbab6e434b520c414a4686db906efeb012a",
+      "size_bytes": 2723
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\reliability_diagram_seed00.png",
+      "sha256": "2fbe5ed56ae4c5f55e711640a1c5f6d3538e90928187fbac0dbf00c120bd7c9f",
+      "size_bytes": 115633
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\reliability_diagram_seed01.png",
+      "sha256": "7b42e883fa410acab942b4c0eec3cb136cb09396417c2770177d6c0cc0d8fb82",
+      "size_bytes": 109427
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\reliability_diagram_seed02.png",
+      "sha256": "4a347cdb2f3522394760fe11fdec99492142585f9b98a2bff0a6964cc84ff771",
+      "size_bytes": 115638
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\run_manifest_seed00.json",
+      "sha256": "46afed3db8736afc343cd1322cc3df101ee9a6b0cd05c92d813f2392596429f5",
+      "size_bytes": 12779
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\run_manifest_seed01.json",
+      "sha256": "478729e95af9f2a86ab0acc8edea1fcbac2b5bb569edb6c85d4e330a8a879fde",
+      "size_bytes": 12779
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\run_manifest_seed02.json",
+      "sha256": "53e910f331719e7a436641b3eb3159c44c1a1270524551281d14872967004623",
+      "size_bytes": 12778
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\run_manifest_validation_fit.json",
+      "sha256": "69e259bc37d8306c284b4fbdc8dde685b44d527c7e73e7942aa1c51c5830a9af",
+      "size_bytes": 18304
+    }
+  ]
+}

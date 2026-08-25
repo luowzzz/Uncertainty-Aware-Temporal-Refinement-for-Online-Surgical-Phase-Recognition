@@ -1,0 +1,101 @@
+{
+  "schema_version": 2,
+  "config_id": "temperature_scaling_calibration_v2",
+  "status": "frozen_before_raw_logit_validation_fit",
+  "scope": "rq1_deterministic_baseline_probability_calibration_only",
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "checkpoints": {
+    "0": {
+      "path": "outputs/v2_lstm_online_resnet18_seed00/checkpoints/best.pt",
+      "epoch": 36,
+      "validation_macro_f1": 0.6282723507649033,
+      "sha256": "47dca8f3f08e4ac862e12abd0d1a07676654068e1e61c3b402f7a9f1b2451fa4"
+    },
+    "1": {
+      "path": "outputs/v2_lstm_online_resnet18_seed01/checkpoints/best.pt",
+      "epoch": 30,
+      "validation_macro_f1": 0.6528704605848746,
+      "sha256": "5fef8973ca150c051ca3158354781cc5ac65e4378b6b1c2b494a728292a26f9b"
+    },
+    "2": {
+      "path": "outputs/v2_lstm_online_resnet18_seed02/checkpoints/best.pt",
+      "epoch": 36,
+      "validation_macro_f1": 0.561064110656276,
+      "sha256": "6a4c14b755d26e13b082b724f07bde0755781b67e062c166708cd7600cbaaE52"
+    }
+  },
+  "data": {
+    "sampling_rate_fps": 1,
+    "validation_split": {
+      "name": "val",
+      "video_ids": [
+        "11",
+        "12",
+        "13",
+        "14"
+      ]
+    },
+    "test_split": {
+      "name": "test",
+      "video_ids": [
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21"
+      ]
+    },
+    "raw_logit_source_pattern": "outputs/v2_lstm_online_resnet18_seed{seed:02d}/predictions/{split}_video_{video_id}_predictions.npz",
+    "prohibited_input": "probabilities must not be transformed back into logits"
+  },
+  "fit": {
+    "method": "one positive scalar temperature per training seed",
+    "input": "original deterministic logits saved by the selected checkpoint",
+    "split": "val",
+    "objective": "pooled per-second multiclass negative log likelihood",
+    "parameterisation": "temperature = exp(log_temperature)",
+    "temperature_bounds": [
+      0.05,
+      20.0
+    ],
+    "optimizer": "scipy.optimize.minimize_scalar bounded",
+    "optimizer_xatol": 1E-08,
+    "optimizer_maxiter": 500,
+    "test_used_for_fitting_or_selection": false
+  },
+  "evaluation": {
+    "test_role": "evaluation_only_after_temperature_freeze",
+    "primary_metrics": [
+      "multiclass_negative_log_likelihood",
+      "multiclass_brier_score",
+      "top_label_ece_equal_width_15_bins"
+    ],
+    "recognition_invariance_metrics": [
+      "accuracy",
+      "macro_f1"
+    ],
+    "aggregation": "pool all seconds within each seed, then report three-seed mean and sample standard deviation",
+    "per_video_reporting": true,
+    "reliability_diagram": "two-panel raw versus temperature-scaled top-label reliability on test"
+  },
+  "metric_definitions": {
+    "nll": "-(1/N) * sum_i log(p_i,y_i)",
+    "multiclass_brier": "(1/N) * sum_i sum_c (p_i,c - 1[y_i=c])^2",
+    "ece_15": "sum_b (n_b/N) * abs(accuracy_b - mean_confidence_b), using 15 equal-width top-confidence bins on [0,1] with confidence=1 included in the final bin",
+    "accuracy": "pooled per-second argmax accuracy",
+    "macro_f1": "unweighted mean of the seven per-class F1 values with zero_division=0"
+  },
+  "separation_from_rq2": {
+    "calibrated_probabilities_enter_frozen_gate": false,
+    "existing_gate_thresholds_reused_on_calibrated_probabilities": false,
+    "future_gate_calibration_study": "separate validation-only ablation requiring threshold revalidation"
+  },
+  "evidence_status": "three_seed_iterative_development_evidence_not_independent_confirmatory_test",
+  "test_exposure_note": "The test split had been inspected during earlier iterative method development. This protocol prevents new test-informed calibration choices but cannot restore independent confirmatory status."
+}

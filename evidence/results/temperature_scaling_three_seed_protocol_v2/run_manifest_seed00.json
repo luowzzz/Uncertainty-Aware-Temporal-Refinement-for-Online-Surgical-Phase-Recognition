@@ -1,0 +1,324 @@
+{
+  "schema_version": 2,
+  "stage": "test_evaluation_of_validation_frozen_temperature",
+  "training_seed": 0,
+  "temperature": 1.5745263192066064,
+  "evidence_status": "three_seed_iterative_development_evidence_not_independent_confirmatory_test",
+  "created_at_utc": "2026-07-22T01:15:16.343644+00:00",
+  "command": "scripts\\29_evaluate_temperature_scaling_test.py",
+  "checkpoint": {
+    "training_seed": 0,
+    "checkpoint_path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\checkpoints\\best.pt",
+    "checkpoint_sha256": "47dca8f3f08e4ac862e12abd0d1a07676654068e1e61c3b402f7a9f1b2451fa4",
+    "checkpoint_epoch": 36,
+    "checkpoint_validation_macro_f1": 0.6282723507649033,
+    "checkpoint_selection_split": "val",
+    "checkpoint_selection_metric": "macro_f1"
+  },
+  "frozen_protocol": {
+    "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\calibration_protocol.json",
+    "sha256": "5d0f7d6297f334ecfc9d50d9e6ad14e010cb23a8961975583d7fd401a9d33f33",
+    "size_bytes": 4413
+  },
+  "validation_fit_manifest": {
+    "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\run_manifest_validation_fit.json",
+    "sha256": "69e259bc37d8306c284b4fbdc8dde685b44d527c7e73e7942aa1c51c5830a9af",
+    "size_bytes": 18304
+  },
+  "test_inputs": [
+    {
+      "role": "deterministic_per_second_cross_check",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\model_outputs\\per_second_outputs_test.csv",
+      "sha256": "7d5460e34ed5d4183776ab73fc5e7e563fd3311d89cf487b5e79e6f2c168c5d6",
+      "size_bytes": 5548110,
+      "training_seed": 0,
+      "split": "test"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\predictions\\test_video_15_predictions.npz",
+      "sha256": "ec93aaeb3e399f263e278e0bebac31db32b11fa65db74c70a50217fca7350d95",
+      "size_bytes": 190476,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "15"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\15_labels.npy",
+      "sha256": "5a0c1e3f35bd92ecb1e25e80702cd7e7c27c6c078a1b62d0972ca6538ccc5a3d",
+      "size_bytes": 29352,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "15"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\15_meta.csv",
+      "sha256": "65f5c551ec6c620a015c02c8c097efc677ffc6975daca43f01b5df8f3b23a959",
+      "size_bytes": 248388,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "15"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\predictions\\test_video_16_predictions.npz",
+      "sha256": "852abf6596ff52eab97f197d452d7338f6474fda0b00989304368ab00ba133ef",
+      "size_bytes": 187772,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "16"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\16_labels.npy",
+      "sha256": "18cee65d8b4aa21326acb53a6929aa4d10f1382b51d7ebde4b0df34155abe295",
+      "size_bytes": 29024,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "16"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\16_meta.csv",
+      "sha256": "642eefbc1baff4809ea9a6914160c755686615b300a9410c0df7fee6be32ba1c",
+      "size_bytes": 245559,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "16"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\predictions\\test_video_17_predictions.npz",
+      "sha256": "3d81487eaf9b1b77b55c10ee94255526eabad4f3851fd4ee5cb15fd18549db62",
+      "size_bytes": 242763,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "17"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\17_labels.npy",
+      "sha256": "10021cfae784db91246e74a679225f211ba3334f117a271dc0fa1a7f2bdc17d1",
+      "size_bytes": 37552,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "17"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\17_meta.csv",
+      "sha256": "ef892fda7ad66d57dee05a56ac74c4f3d92c88ec37f73950d2240f287bea0ef5",
+      "size_bytes": 319791,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "17"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\predictions\\test_video_18_predictions.npz",
+      "sha256": "4ede601678b713580a370c0385e089c2ddba148d992ca99d1e4072cc52633300",
+      "size_bytes": 185045,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "18"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\18_labels.npy",
+      "sha256": "7ded6e1081fd08818df3aef37250f863f6f6ae9bc825e793a6d9a4530922c41c",
+      "size_bytes": 28496,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "18"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\18_meta.csv",
+      "sha256": "91d58acfbcdf20e440c8529e8b26a790bac0cacd4e86ffbfa38129ab649892e8",
+      "size_bytes": 241005,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "18"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\predictions\\test_video_19_predictions.npz",
+      "sha256": "ec592e1c797d9e93f6e48b59629c9c2a6d68552463f4e1cf6150386261c033a2",
+      "size_bytes": 178344,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "19"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\19_labels.npy",
+      "sha256": "244d207668706e9c58fef33146cb54b24315d2fdbbd010b8e3e72bac94a9117d",
+      "size_bytes": 27432,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "19"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\19_meta.csv",
+      "sha256": "fa9f308e106c36a756074af8c947bc83030c18139d1a6532baf50388fb5508c2",
+      "size_bytes": 231828,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "19"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\predictions\\test_video_20_predictions.npz",
+      "sha256": "2c4a3be162701bb75e2ae99e0b7df838101959428a8564c7e17047b5b266b084",
+      "size_bytes": 251075,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "20"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\20_labels.npy",
+      "sha256": "2926d5fa1fbf9712f36b894ca127021ef174caf3bfe3d2447c76e8ff0fd96a9e",
+      "size_bytes": 38784,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "20"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\20_meta.csv",
+      "sha256": "f6b706c5bf868257b8653ff526feca22bfb417c7ee95367a7ac8c9feec2833e9",
+      "size_bytes": 330571,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "20"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\predictions\\test_video_21_predictions.npz",
+      "sha256": "0ab5c252165101d6212a3371ffc39e19f98b66f6ed0e5084955636c8a127e235",
+      "size_bytes": 226095,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "21"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\21_labels.npy",
+      "sha256": "ca7355c6ef09a82232758842fd1324fd6d4e422293953fb3d33447966afd6a17",
+      "size_bytes": 34736,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "21"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\21_meta.csv",
+      "sha256": "8bad222c8fd832c3265d44e61c714f2e96b28b5f5a99e404abb2f5669b6e7176",
+      "size_bytes": 295151,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "21"
+    }
+  ],
+  "data_flow_checks": {
+    "temperature_fit_split": "val",
+    "temperature_test_split": "test",
+    "test_video_ids": [
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21"
+    ],
+    "test_used_for_temperature_fitting_or_selection": false,
+    "probability_to_logit_reconstruction_used": false,
+    "raw_logit_label_video_time_alignment_verified": true,
+    "rq2_gate_inputs_changed": false
+  },
+  "correctness": {
+    "training_seed": 0,
+    "raw_vs_scaled_argmax_identical_every_second": true,
+    "accuracy_exactly_identical": true,
+    "macro_f1_exactly_identical": true,
+    "raw_probability_max_sum_error": 6.661338147750939e-16,
+    "scaled_probability_max_sum_error": 6.661338147750939e-16,
+    "frame_logit_label_lengths_aligned": true,
+    "validation_nll_non_increasing": true,
+    "test_used_for_temperature_selection": false
+  },
+  "code": [
+    {
+      "path": "E:\\AutoLaparoProject\\scripts\\29_evaluate_temperature_scaling_test.py",
+      "sha256": "18ef5d74df2fe07e5ecc8c763427b3a0d31b12be0757ea2c7f7446e8f60140e8",
+      "size_bytes": 20781
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\scripts\\temperature_scaling_logits.py",
+      "sha256": "0b98c34f2913f0553254463bb519026f5e6004a7628ee7beaa19242b03b07682",
+      "size_bytes": 13063
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\scripts\\calibration_metrics.py",
+      "sha256": "d44d0d5e8960950bc8503b6af1724086c4ff886e7a12c2b9526b3b712aa95334",
+      "size_bytes": 6616
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\scripts\\reproducibility_utils.py",
+      "sha256": "b79ce36a1c992e4645bc7677129d7ae0a4b0eb7e1a87c20715e98807dd5a8c32",
+      "size_bytes": 10827
+    }
+  ],
+  "outputs": [
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\calibration_protocol.json",
+      "sha256": "5d0f7d6297f334ecfc9d50d9e6ad14e010cb23a8961975583d7fd401a9d33f33",
+      "size_bytes": 4413
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\temperature_per_seed.csv",
+      "sha256": "cfebbfb972e2a8f08583607af40517a5330cd3b191603da1d82013c37e704092",
+      "size_bytes": 1259
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\test_calibration_metrics_per_seed.csv",
+      "sha256": "22417dfd87c4d6420b1d829de4b7061a70b22329b50ad0a753082be04ae4e662",
+      "size_bytes": 2390
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\test_calibration_mean_std.csv",
+      "sha256": "c3e0f860f6a0b43a602550ea24c159d947839f3ca65a450f7c10b48f7ae50b5b",
+      "size_bytes": 875
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\test_calibration_metrics_per_video.csv",
+      "sha256": "4d54003812782afe07a8459346afb0b6e30ba183cece1760b1b7a9c89d03003c",
+      "size_bytes": 7421
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\test_reliability_bins_15.csv",
+      "sha256": "659f9a19268c491348a3cdbaf2e2e11679eb65834337ef0b04cdac15cdf20ca1",
+      "size_bytes": 10572
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\test_correctness_checks.csv",
+      "sha256": "c1d8400e5fb24c483e2cab1d808ec55d08c59135746a672a615cf9668c77440f",
+      "size_bytes": 510
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\README_calibration.md",
+      "sha256": "5de618c9ce4ff0868e0691a8fc562cbab6e434b520c414a4686db906efeb012a",
+      "size_bytes": 2723
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\reliability_diagram_seed00.png",
+      "sha256": "2fbe5ed56ae4c5f55e711640a1c5f6d3538e90928187fbac0dbf00c120bd7c9f",
+      "size_bytes": 115633
+    }
+  ]
+}

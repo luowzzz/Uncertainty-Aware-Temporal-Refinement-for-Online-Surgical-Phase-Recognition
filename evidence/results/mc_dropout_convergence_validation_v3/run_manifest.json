@@ -1,0 +1,132 @@
+{
+  "schema_version": 2,
+  "analysis": "mc_dropout_convergence_validation",
+  "created_at_utc": "2026-07-21T23:58:49.456757+00:00",
+  "data_split": "val_only",
+  "test_files_read": false,
+  "training_runs": [
+    {
+      "training_seed": 0,
+      "checkpoint_path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\checkpoints\\best.pt",
+      "checkpoint_sha256": "47dca8f3f08e4ac862e12abd0d1a07676654068e1e61c3b402f7a9f1b2451fa4",
+      "checkpoint_epoch": 36,
+      "checkpoint_validation_macro_f1": 0.6282723507649033,
+      "checkpoint_selection_split": "val",
+      "checkpoint_selection_metric": "macro_f1"
+    },
+    {
+      "training_seed": 1,
+      "checkpoint_path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed01\\checkpoints\\best.pt",
+      "checkpoint_sha256": "5fef8973ca150c051ca3158354781cc5ac65e4378b6b1c2b494a728292a26f9b",
+      "checkpoint_epoch": 30,
+      "checkpoint_validation_macro_f1": 0.6528704605848746,
+      "checkpoint_selection_split": "val",
+      "checkpoint_selection_metric": "macro_f1"
+    },
+    {
+      "training_seed": 2,
+      "checkpoint_path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed02\\checkpoints\\best.pt",
+      "checkpoint_sha256": "6a4c14b755d26e13b082b724f07bde0755781b67e062c166708cd7600cbaae52",
+      "checkpoint_epoch": 36,
+      "checkpoint_validation_macro_f1": 0.561064110656276,
+      "checkpoint_selection_split": "val",
+      "checkpoint_selection_metric": "macro_f1"
+    }
+  ],
+  "feature_sources": [
+    {
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\11.npy",
+      "sha256": "614090d5583b27b1ce40b2b1729199e10c5b01f1926b604d37b3511133007659"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\11_labels.npy",
+      "sha256": "894d827fa2db0c9f802d7ae827e556ddd9770dd75dd4816c7e6ce3c92bc40580"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\12.npy",
+      "sha256": "04ce1565358058f3e5cb28e9027f1bc01eb7ca19646f76210581f08d54eac5bf"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\12_labels.npy",
+      "sha256": "b52e12c227e3a9f931101c0e45f808bea53c1dc541f2608d82b52f170203ec02"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\13.npy",
+      "sha256": "070edd4693f295d79ee5f5dd880e9276bdfe8c93c98490244b2ba24374b2e76e"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\13_labels.npy",
+      "sha256": "08425649f4136d1c690ea9d0ba54c60309bce9b0a72235295dbdd68e968946fb"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\14.npy",
+      "sha256": "2b309f3351e6b84bbd5d86a6f240446ed5368bdbeee8214725dfcbf053393c35"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\14_labels.npy",
+      "sha256": "d93bf72572a95c1ecab81dec7d61c48ba0d4ce996dc192fc04a3cbdf5d667d87"
+    }
+  ],
+  "T_values": [
+    10,
+    20,
+    30,
+    50
+  ],
+  "nested_prefix_design": true,
+  "selected_T": 30,
+  "stability_criteria": {
+    "prediction_disagreement_rate_max": 0.01,
+    "mc_entropy_spearman_min": 0.995,
+    "mc_mutual_information_spearman_min": 0.98,
+    "error_auroc_abs_difference_max": 0.01,
+    "error_aupr_abs_difference_max": 0.01,
+    "aurc_abs_difference_max": 0.005
+  },
+  "inference_seed": 0,
+  "dropout_mode": "model_eval_with_nn_dropout_modules_enabled",
+  "error_definition": "Incorrect MC-averaged argmax prediction is positive.",
+  "risk_coverage_config": "configs/selective_prediction_evaluation_v2.json",
+  "script": {
+    "path": "E:\\AutoLaparoProject\\scripts\\23_mc_dropout_convergence_validation.py",
+    "sha256": "33b5d2b32dc0c0ee89537027df92f505aeb8b5363e177d0a67a5ef99ae8a73cb",
+    "argv": [
+      "scripts\\23_mc_dropout_convergence_validation.py"
+    ]
+  },
+  "code_dependencies": [
+    {
+      "path": "E:\\AutoLaparoProject\\scripts\\08_eval_mc_dropout.py",
+      "sha256": "276a1dea92fa4187c5b898e723720e41f49b0dacf458aabc5dff275097b431fd"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\scripts\\selective_prediction_metrics.py",
+      "sha256": "911816766fdf91b2093f5b4b112107524e20e086e658823be5fca5860fdd6d41"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\scripts\\reproducibility_utils.py",
+      "sha256": "b79ce36a1c992e4645bc7677129d7ae0a4b0eb7e1a87c20715e98807dd5a8c32"
+    }
+  ],
+  "runtime": {
+    "wall_clock_seconds": 24.965985900002124,
+    "timing_definition": "Cumulative stochastic forward-pass time, including softmax and CPU transfer, measured with CUDA synchronisation at each T."
+  },
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "torch": "2.6.0+cu124",
+    "device": "cuda",
+    "cuda_available": true,
+    "cuda_version": "12.4"
+  },
+  "outputs": [
+    "E:\\AutoLaparoProject\\outputs\\mc_dropout_convergence_validation_v3\\validation_convergence_per_seed.csv",
+    "E:\\AutoLaparoProject\\outputs\\mc_dropout_convergence_validation_v3\\validation_convergence_summary.csv",
+    "E:\\AutoLaparoProject\\outputs\\mc_dropout_convergence_validation_v3\\validation_stability_checks_per_seed.csv",
+    "E:\\AutoLaparoProject\\outputs\\mc_dropout_convergence_validation_v3\\validation_inference_runtime_by_video.csv",
+    "E:\\AutoLaparoProject\\outputs\\mc_dropout_convergence_validation_v3\\selected_mc_config.json",
+    "E:\\AutoLaparoProject\\outputs\\mc_dropout_convergence_validation_v3\\validation_frame_scores.csv.gz",
+    "E:\\AutoLaparoProject\\outputs\\mc_dropout_convergence_validation_v3\\analysis_notes.md"
+  ]
+}

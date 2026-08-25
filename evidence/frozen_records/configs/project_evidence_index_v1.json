@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "index_id": "project_evidence_index_v1",
+  "status": "current_thesis_evidence_authority",
+  "thesis_title": "Uncertainty-Aware Temporal Refinement for Online Surgical Phase Recognition",
+  "project_protocol": {
+    "path": "configs/frozen_protocol_v3.json",
+    "sha256": "3953f72a7701d921bcd7d54a51f9999d3ffa85ac6b8a69e81433f7fdf7632a67"
+  },
+  "rq1": {
+    "configuration": "configs/rq1_final_evidence_v2.json",
+    "evidence_directory": "outputs/rq1_final_evidence_v2",
+    "manifest": "outputs/rq1_final_evidence_v2/run_manifest.json",
+    "status": "final_core_evidence"
+  },
+  "rq2": {
+    "validation_protocol": "configs/rq2_egtp_validation_protocol_v1.json",
+    "validation_selection": "configs/rq2_egtp_validation_selection_v1.json",
+    "test_protocol": "configs/rq2_egtp_test_protocol_v1.json",
+    "evidence_directory": "outputs/rq2_egtp_final_evidence_v1",
+    "manifest": "outputs/rq2_egtp_final_evidence_v1/run_manifest.json",
+    "transition_type_audit": "outputs/rq2_egtp_transition_type_audit_v1",
+    "status": "final_core_evidence_with_secondary_post_hoc_audit"
+  },
+  "thesis_writing_guide": "research_log/THESIS_EVIDENCE_GUIDE_v1_ZH.md",
+  "legacy_not_current_authority": [
+    "configs/frozen_protocol_v1.json",
+    "configs/frozen_protocol_v2.json",
+    "configs/rq2_proposed_gate_v1.json",
+    "configs/rq2_gate_v2_test_protocol_v1.json",
+    "configs/rq2_final_evidence_v1.json",
+    "research_log/RQ2_FINAL_EVIDENCE_v1_ZH.md",
+    "outputs/rq2_gate_v1_dissertation_evidence_v2",
+    "outputs/rq2_gate_v2_final_evidence_v1"
+  ],
+  "legacy_policy": "Legacy files remain read-only provenance and must not be cited as the current final RQ2 method or result.",
+  "experiment_scope": {
+    "new_training_required_before_thesis": false,
+    "new_inference_required_before_thesis": false,
+    "new_metric_family_required_before_thesis": false,
+    "remaining_work": "writing, evidence citation and limitation-aware interpretation"
+  }
+}

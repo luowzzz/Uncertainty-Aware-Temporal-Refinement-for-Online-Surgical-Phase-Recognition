@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "analysis": "frozen_three_seed_mc_dropout_protocol",
+  "status": "complete",
+  "created_at_utc": "2026-07-22T00:01:15.388421+00:00",
+  "script": {
+    "path": "E:\\AutoLaparoProject\\scripts\\27_finalize_multiseed_mc_protocol.py",
+    "sha256": "c956eb589659b5c1e776b0af50461a9adaf8f0dab5faf06539dbead3ebaced9b",
+    "argv": [
+      "scripts\\27_finalize_multiseed_mc_protocol.py"
+    ]
+  },
+  "code_dependencies": [
+    {
+      "path": "E:\\AutoLaparoProject\\scripts\\08_eval_mc_dropout.py",
+      "sha256": "276a1dea92fa4187c5b898e723720e41f49b0dacf458aabc5dff275097b431fd"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\scripts\\23_mc_dropout_convergence_validation.py",
+      "sha256": "33b5d2b32dc0c0ee89537027df92f505aeb8b5363e177d0a67a5ef99ae8a73cb"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\scripts\\selective_prediction_metrics.py",
+      "sha256": "911816766fdf91b2093f5b4b112107524e20e086e658823be5fca5860fdd6d41"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\scripts\\reproducibility_utils.py",
+      "sha256": "b79ce36a1c992e4645bc7677129d7ae0a4b0eb7e1a87c20715e98807dd5a8c32"
+    }
+  ],
+  "inputs": [
+    {
+      "role": "authoritative_mc_config",
+      "training_seed": null,
+      "path": "E:\\AutoLaparoProject\\configs\\mc_dropout_evaluation_v4.json",
+      "sha256": "0a6613e63285b2794940d701c48b65e060e97754b655dfef00db0f408835c43f",
+      "size_bytes": 3574
+    },
+    {
+      "role": "validation_convergence_per_seed",
+      "training_seed": null,
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_convergence_validation_v3\\validation_convergence_per_seed.csv",
+      "sha256": "b72a519d32661dd24f56d6c91690bf85904a18815b1932d973fa5708c8f37355",
+      "size_bytes": 10523
+    },
+    {
+      "role": "validation_convergence_summary",
+      "training_seed": null,
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_convergence_validation_v3\\validation_convergence_summary.csv",
+      "sha256": "a6d44cf1c731cc00e40f549a5fca88737b25f9631248b567a3bc0b726cfcaaa9",
+      "size_bytes": 9635
+    },
+    {
+      "role": "validation_selected_mc_config",
+      "training_seed": null,
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_convergence_validation_v3\\selected_mc_config.json",
+      "sha256": "574b8c87c74e5313018e5aed73cac0e854603916513b18ad34583e966066fdb5",
+      "size_bytes": 1326
+    },
+    {
+      "role": "validation_run_manifest",
+      "training_seed": null,
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_convergence_validation_v3\\run_manifest.json",
+      "sha256": "1322e77a3f5f48096dd791c64dd2d3c061a512a2f0d97cf57aaece307b02a92f",
+      "size_bytes": 5674
+    },
+    {
+      "role": "test_run_manifest",
+      "training_seed": 0,
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed00_v4\\run_manifest.json",
+      "sha256": "a1630d174482ab9c186621fa7a37e07f28f8daea08d6b74e3fb66b22790dad2a",
+      "size_bytes": 4177
+    },
+    {
+      "role": "test_frame_scores",
+      "training_seed": 0,
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed00_v4\\mc_dropout_frame_scores.csv",
+      "sha256": "b48acf041bf53d1eb4c69a01f89292e4fcd9352f286eea654a54e916c3104385",
+      "size_bytes": 3988000
+    },
+    {
+      "role": "test_per_video_metrics",
+      "training_seed": 0,
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed00_v4\\mc_dropout_metrics_by_video.csv",
+      "sha256": "3fc457785639af5983e4c5e6951716b6388fb9111c41e9e1f218e1294007707b",
+      "size_bytes": 5413
+    },
+    {
+      "role": "test_runtime",
+      "training_seed": 0,
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed00_v4\\mc_dropout_runtime_by_video.csv",
+      "sha256": "8d543f810ea2c19fd0ca997f49916d4f70ffdb652a1f378ca8b4abd7ff7055a7",
+      "size_bytes": 469
+    },
+    {
+      "role": "test_run_manifest",
+      "training_seed": 1,
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed01_v4\\run_manifest.json",
+      "sha256": "61054bf47631430f6427b400066f64727f7b028d54478216188dacb1dd9f289f",
+      "size_bytes": 4177
+    },
+    {
+      "role": "test_frame_scores",
+      "training_seed": 1,
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed01_v4\\mc_dropout_frame_scores.csv",
+      "sha256": "f7abe0a6431cef0dcef08f10e209a5bbd66244e76d6ee0189236144e0852227f",
+      "size_bytes": 4008069
+    },
+    {
+      "role": "test_per_video_metrics",
+      "training_seed": 1,
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed01_v4\\mc_dropout_metrics_by_video.csv",
+      "sha256": "6ab49db0cb3036d4109a84c5ebf90dce20408de9f0446fcf1f2c8d53904e48a7",
+      "size_bytes": 5410
+    },
+    {
+      "role": "test_runtime",
+      "training_seed": 1,
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed01_v4\\mc_dropout_runtime_by_video.csv",
+      "sha256": "b8502b9e1c2e49b609e4887359cab9ec993f59668463cbd5e21abd77c0fa24b9",
+      "size_bytes": 468
+    },
+    {
+      "role": "test_run_manifest",
+      "training_seed": 2,
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed02_v4\\run_manifest.json",
+      "sha256": "91a2ccd4ecbaeceaa2dc01bfc82fad06a97da12afe83678cf14a58edb9026759",
+      "size_bytes": 4176
+    },
+    {
+      "role": "test_frame_scores",
+      "training_seed": 2,
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed02_v4\\mc_dropout_frame_scores.csv",
+      "sha256": "621ca3401d8428d3a569d443e3f59b39ac3897d32aa1922ba8e23061448a3139",
+      "size_bytes": 3985723
+    },
+    {
+      "role": "test_per_video_metrics",
+      "training_seed": 2,
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed02_v4\\mc_dropout_metrics_by_video.csv",
+      "sha256": "37a950901bd72056d24cdf76be8533536ab0fb38f8c72f0eea22603520924fe6",
+      "size_bytes": 5419
+    },
+    {
+      "role": "test_runtime",
+      "training_seed": 2,
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed02_v4\\mc_dropout_runtime_by_video.csv",
+      "sha256": "422697ee8c51329684533c3abb03a14871aef3026a98c51a38b10266e6430837",
+      "size_bytes": 467
+    }
+  ],
+  "protocol": {
+    "selected_T": 30,
+    "training_seeds": [
+      0,
+      1,
+      2
+    ],
+    "inference_seed": 0,
+    "validation_selection_only": true,
+    "test_used_for_selection": false,
+    "rng_scope": "reset_once_at_the_start_of_each_split",
+    "error_definition": "Incorrect MC-averaged argmax prediction is positive.",
+    "aurc_definition": "Exact empirical mean selective risk over k=1..N with expected risk inside exact score ties.",
+    "test_exposure": "The test split had already been inspected earlier. Frozen test reruns are reproducibility and consistency evidence, not a new independent confirmatory test."
+  },
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Windows-10-10.0.19045-SP0"
+  },
+  "outputs": [
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_three_seed_protocol_v4\\validation_convergence_per_seed.csv",
+      "sha256": "f252616912ddac2d09e23b73437392dce8a42fc647aea1bf20c2e777b4512134"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_three_seed_protocol_v4\\validation_convergence_summary.csv",
+      "sha256": "053b7ffedadc3f062ed4f0e4ddcd00a3619e788657f8c3e5d8f0c591bfa64485"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_three_seed_protocol_v4\\selected_mc_config.json",
+      "sha256": "a6cc15d5e4262d124a1859512378f48064dfc91fb481e1d67cb62b4c8ece5469"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_three_seed_protocol_v4\\test_mc_metrics_per_seed.csv",
+      "sha256": "242064e5912ebac717140b3f2921e7e798a50c5dbcc080db1a297f21482efd76"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_three_seed_protocol_v4\\test_mc_metrics_mean_std.csv",
+      "sha256": "23ab0ac608367081f3c29da98557a714f329fe8f4c04a18a5109e920b6864eb7"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_three_seed_protocol_v4\\test_mc_metrics_per_video.csv",
+      "sha256": "00a8f58926772de867466bdfe0ca77941d2a7b24533073c909083301bd7ce713"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_three_seed_protocol_v4\\test_mc_metrics_per_video_mean_std.csv",
+      "sha256": "afd7372bde78031344dc3b0b5456b1c19a807fb3c66f94c3a2296f58aa17e037"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_three_seed_protocol_v4\\run_manifest_seed00.json",
+      "sha256": "a1630d174482ab9c186621fa7a37e07f28f8daea08d6b74e3fb66b22790dad2a"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_three_seed_protocol_v4\\run_manifest_seed01.json",
+      "sha256": "61054bf47631430f6427b400066f64727f7b028d54478216188dacb1dd9f289f"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_three_seed_protocol_v4\\run_manifest_seed02.json",
+      "sha256": "91a2ccd4ecbaeceaa2dc01bfc82fad06a97da12afe83678cf14a58edb9026759"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_three_seed_protocol_v4\\README.md",
+      "sha256": "f2b98b82b00112f655f46f137912508e27c02b5b296ae25d99585a7f57b0a688"
+    }
+  ]
+}

@@ -1,0 +1,434 @@
+{
+  "schema_version": 2,
+  "analysis": "rq1_final_thesis_evidence_manifest_repair_v2",
+  "created_at_utc": "2026-07-31T18:49:11.890192+00:00",
+  "operation": {
+    "training_run": false,
+    "model_inference_run": false,
+    "metric_recomputation": false,
+    "test_used_for_selection": false,
+    "quantitative_values_changed": false,
+    "legacy_output_overwritten": false
+  },
+  "configuration": {
+    "path": "E:\\AutoLaparoProject\\configs\\rq1_final_evidence_v2.json",
+    "sha256": "d651e5fcaf7fc8a9ae80d6ded2d04e7057c08d4d18120c8a133502cc529da38b"
+  },
+  "source_bundle": {
+    "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v1",
+    "manifest_path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v1\\run_manifest.json",
+    "manifest_sha256": "c9dee66e0ac47c19420766552cea208dd866f8606278c06c1a9ebfaab7bacd27",
+    "documented_mismatches": [
+      {
+        "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v1\\README.md",
+        "recorded_sha256": "40aa8978013c750f993b01fbf02772da1e4917d6f237c44e33a433590e492f8a",
+        "actual_sha256": "59ff6ef7b03643cce5767ebbae89c5915e2e6c362373bb28008fee814c32afaa"
+      }
+    ]
+  },
+  "authoritative_inputs": [
+    {
+      "role": "final_evidence_configuration",
+      "path": "E:\\AutoLaparoProject\\configs\\rq1_final_evidence_v1.json",
+      "sha256": "412289bc7e2b651a2e644e4d658ca073ee521ec0c755fa45016c3705f58e3acf",
+      "size_bytes": 3523
+    },
+    {
+      "role": "authoritative_configuration",
+      "path": "E:\\AutoLaparoProject\\configs\\rq1_evaluation_v4.json",
+      "sha256": "3e92fefc07d7f607d51f521f75a536ebb6f76fa12635b3299be19545625fb90e",
+      "size_bytes": 3703
+    },
+    {
+      "role": "authoritative_configuration",
+      "path": "E:\\AutoLaparoProject\\configs\\baseline_training_v1.json",
+      "sha256": "70bdb6c24feba03d7db1a12f2ed1b02b1320ec58b26ed50619512237a92c2186",
+      "size_bytes": 2460
+    },
+    {
+      "role": "authoritative_configuration",
+      "path": "E:\\AutoLaparoProject\\configs\\mc_dropout_evaluation_v4.json",
+      "sha256": "0a6613e63285b2794940d701c48b65e060e97754b655dfef00db0f408835c43f",
+      "size_bytes": 3574
+    },
+    {
+      "role": "authoritative_configuration",
+      "path": "E:\\AutoLaparoProject\\configs\\temperature_scaling_calibration_v2.json",
+      "sha256": "85e7fc42677e760758d0948ff0687941eb07602c217d3419f5264441cc1b8480",
+      "size_bytes": 3564
+    },
+    {
+      "role": "authoritative_configuration",
+      "path": "E:\\AutoLaparoProject\\configs\\selective_prediction_evaluation_v2.json",
+      "sha256": "01737832ffe72aa4cee4e4f2ab46c52b799ceb986edd415ca2ce62d8287cb375",
+      "size_bytes": 1295
+    },
+    {
+      "role": "selected_baseline_checkpoint",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\checkpoints\\best.pt",
+      "sha256": "47dca8f3f08e4ac862e12abd0d1a07676654068e1e61c3b402f7a9f1b2451fa4",
+      "size_bytes": 2640817,
+      "training_seed": 0
+    },
+    {
+      "role": "deterministic_frame_scores",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\model_outputs\\per_second_outputs_val.csv",
+      "sha256": "971c0ab01ed131ffeed1c4fa8d80b40b54f362d6193f455a11e097dc1e56fbc6",
+      "size_bytes": 2960140,
+      "training_seed": 0,
+      "split": "val"
+    },
+    {
+      "role": "deterministic_frame_scores",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\model_outputs\\per_second_outputs_test.csv",
+      "sha256": "7d5460e34ed5d4183776ab73fc5e7e563fd3311d89cf487b5e79e6f2c168c5d6",
+      "size_bytes": 5548110,
+      "training_seed": 0,
+      "split": "test"
+    },
+    {
+      "role": "selected_baseline_checkpoint",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed01\\checkpoints\\best.pt",
+      "sha256": "5fef8973ca150c051ca3158354781cc5ac65e4378b6b1c2b494a728292a26f9b",
+      "size_bytes": 2640817,
+      "training_seed": 1
+    },
+    {
+      "role": "deterministic_frame_scores",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed01\\model_outputs\\per_second_outputs_val.csv",
+      "sha256": "b6f92e3892f76c72755dffe97bd8f350102e553a546867e74d1c764846143740",
+      "size_bytes": 2925350,
+      "training_seed": 1,
+      "split": "val"
+    },
+    {
+      "role": "deterministic_frame_scores",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed01\\model_outputs\\per_second_outputs_test.csv",
+      "sha256": "174c973c42f5afd6ed3f659f675cb13363c64a173c997f7f1125965db8238494",
+      "size_bytes": 5497703,
+      "training_seed": 1,
+      "split": "test"
+    },
+    {
+      "role": "selected_baseline_checkpoint",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed02\\checkpoints\\best.pt",
+      "sha256": "6a4c14b755d26e13b082b724f07bde0755781b67e062c166708cd7600cbaae52",
+      "size_bytes": 2640817,
+      "training_seed": 2
+    },
+    {
+      "role": "deterministic_frame_scores",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed02\\model_outputs\\per_second_outputs_val.csv",
+      "sha256": "6e97c672f22345b957333c358eb45dbe406e4602ebfbf6ce7fd11951a7673acc",
+      "size_bytes": 2934979,
+      "training_seed": 2,
+      "split": "val"
+    },
+    {
+      "role": "deterministic_frame_scores",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed02\\model_outputs\\per_second_outputs_test.csv",
+      "sha256": "1883e2ddbfd33d49ae10ca9615e47e349d9019e90d733f633c3d40ddcb35f2e0",
+      "size_bytes": 5537506,
+      "training_seed": 2,
+      "split": "test"
+    },
+    {
+      "role": "mc_validation_convergence_manifest",
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_convergence_validation_v3\\run_manifest.json",
+      "sha256": "1322e77a3f5f48096dd791c64dd2d3c061a512a2f0d97cf57aaece307b02a92f",
+      "size_bytes": 5674
+    },
+    {
+      "role": "mc_validation_nested_frame_scores",
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_convergence_validation_v3\\validation_frame_scores.csv.gz",
+      "sha256": "6faca928a2e5a14d166ba323ee8d0c6d4fa6f72579789417102a975618d87ed4",
+      "size_bytes": 3911244
+    },
+    {
+      "role": "mc_validation_convergence_per_seed",
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_convergence_validation_v3\\validation_convergence_per_seed.csv",
+      "sha256": "b72a519d32661dd24f56d6c91690bf85904a18815b1932d973fa5708c8f37355",
+      "size_bytes": 10523
+    },
+    {
+      "role": "mc_validation_convergence_summary",
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_convergence_validation_v3\\validation_convergence_summary.csv",
+      "sha256": "a6d44cf1c731cc00e40f549a5fca88737b25f9631248b567a3bc0b726cfcaaa9",
+      "size_bytes": 9635
+    },
+    {
+      "role": "mc_validation_selected_config",
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_convergence_validation_v3\\selected_mc_config.json",
+      "sha256": "574b8c87c74e5313018e5aed73cac0e854603916513b18ad34583e966066fdb5",
+      "size_bytes": 1326
+    },
+    {
+      "role": "complete_mc_test_protocol_manifest",
+      "path": "E:\\AutoLaparoProject\\outputs\\mc_dropout_three_seed_protocol_v4\\run_manifest.json",
+      "sha256": "195f29faa66009e3e2787a310536bc8957d3464ff215a73022702fcd8e696360",
+      "size_bytes": 9419
+    },
+    {
+      "role": "mc_test_manifest",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed00_v4\\run_manifest.json",
+      "sha256": "a1630d174482ab9c186621fa7a37e07f28f8daea08d6b74e3fb66b22790dad2a",
+      "size_bytes": 4177,
+      "training_seed": 0
+    },
+    {
+      "role": "mc_test_frame_scores",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed00_v4\\mc_dropout_frame_scores.csv",
+      "sha256": "b48acf041bf53d1eb4c69a01f89292e4fcd9352f286eea654a54e916c3104385",
+      "size_bytes": 3988000,
+      "training_seed": 0,
+      "split": "test"
+    },
+    {
+      "role": "mc_test_manifest",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed01_v4\\run_manifest.json",
+      "sha256": "61054bf47631430f6427b400066f64727f7b028d54478216188dacb1dd9f289f",
+      "size_bytes": 4177,
+      "training_seed": 1
+    },
+    {
+      "role": "mc_test_frame_scores",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed01_v4\\mc_dropout_frame_scores.csv",
+      "sha256": "f7abe0a6431cef0dcef08f10e209a5bbd66244e76d6ee0189236144e0852227f",
+      "size_bytes": 4008069,
+      "training_seed": 1,
+      "split": "test"
+    },
+    {
+      "role": "mc_test_manifest",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed02_v4\\run_manifest.json",
+      "sha256": "91a2ccd4ecbaeceaa2dc01bfc82fad06a97da12afe83678cf14a58edb9026759",
+      "size_bytes": 4176,
+      "training_seed": 2
+    },
+    {
+      "role": "mc_test_frame_scores",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed02_v4\\mc_dropout_frame_scores.csv",
+      "sha256": "621ca3401d8428d3a569d443e3f59b39ac3897d32aa1922ba8e23061448a3139",
+      "size_bytes": 3985723,
+      "training_seed": 2,
+      "split": "test"
+    },
+    {
+      "role": "complete_calibration_protocol_manifest",
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\run_manifest.json",
+      "sha256": "2c70aa1ab6f820059a3efca2c1a29f8a544d64547118f6b990f7f1bae2c9a38d",
+      "size_bytes": 4635
+    },
+    {
+      "role": "frozen_calibration_protocol",
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\calibration_protocol.json",
+      "sha256": "5d0f7d6297f334ecfc9d50d9e6ad14e010cb23a8961975583d7fd401a9d33f33",
+      "size_bytes": 4413
+    },
+    {
+      "role": "final_calibration_per_seed",
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\test_calibration_metrics_per_seed.csv",
+      "sha256": "22417dfd87c4d6420b1d829de4b7061a70b22329b50ad0a753082be04ae4e662",
+      "size_bytes": 2390
+    },
+    {
+      "role": "final_calibration_summary",
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\test_calibration_mean_std.csv",
+      "sha256": "c3e0f860f6a0b43a602550ea24c159d947839f3ca65a450f7c10b48f7ae50b5b",
+      "size_bytes": 875
+    },
+    {
+      "role": "validation_fitted_temperatures",
+      "path": "E:\\AutoLaparoProject\\outputs\\temperature_scaling_three_seed_protocol_v2\\temperature_per_seed.csv",
+      "sha256": "cfebbfb972e2a8f08583607af40517a5330cd3b191603da1d82013c37e704092",
+      "size_bytes": 1259
+    },
+    {
+      "role": "legacy_unified_rq1_manifest",
+      "path": "E:\\AutoLaparoProject\\outputs\\multiseed_rq1_frozen_consistency_v2\\run_manifest.json",
+      "sha256": "925e5ecba5b14c86a89b16ef9a68027edf9d646da335a0563700fb9edcb421d8",
+      "size_bytes": 10166
+    },
+    {
+      "role": "legacy_unified_error_detection",
+      "path": "E:\\AutoLaparoProject\\outputs\\multiseed_rq1_frozen_consistency_v2\\per_seed_error_detection.csv",
+      "sha256": "b9d894e620cb6d80f219d0746a08e1f1eb2749582903e88853839a496b61fabb",
+      "size_bytes": 45831
+    },
+    {
+      "role": "legacy_unified_risk_coverage",
+      "path": "E:\\AutoLaparoProject\\outputs\\multiseed_rq1_frozen_consistency_v2\\per_seed_risk_coverage.csv",
+      "sha256": "0e9ae7cc7b4d11918029871c21a2e7c6121758a3b0b8a614bf9c30d019b4568e",
+      "size_bytes": 9427
+    },
+    {
+      "role": "legacy_unified_boundary_proximity",
+      "path": "E:\\AutoLaparoProject\\outputs\\multiseed_rq1_frozen_consistency_v2\\per_seed_boundary_proximity_detection.csv",
+      "sha256": "5044c44746023a7df242001ae50764efee7043e61729c16ee4e95fe5b5139481",
+      "size_bytes": 17752
+    },
+    {
+      "role": "legacy_calibration_metrics",
+      "path": "E:\\AutoLaparoProject\\outputs\\calibration_multiseed_v1\\per_seed_calibration_metrics.csv",
+      "sha256": "5cf3633b6ef2d650c0ad6227f1f35570feb8a9268bf16b99f068904ae04cc63f",
+      "size_bytes": 2214
+    }
+  ],
+  "protocol": {
+    "training_seeds": [
+      0,
+      1,
+      2
+    ],
+    "splits": [
+      "val",
+      "test"
+    ],
+    "primary_scores": {
+      "deterministic_raw": [
+        "one_minus_confidence",
+        "normalised_entropy"
+      ],
+      "mc_dropout_t30": [
+        "mc_entropy",
+        "mc_mutual_info"
+      ]
+    },
+    "overall_metrics": [
+      "auroc",
+      "aupr",
+      "exact_aurc"
+    ],
+    "conditional_metrics": [
+      "auroc",
+      "aupr"
+    ],
+    "conditional_windows_seconds": [
+      5,
+      10,
+      20
+    ],
+    "near_far_aurc_included": false,
+    "boundary_proximity_metrics": [
+      "auroc",
+      "aupr"
+    ],
+    "calibration_ece_bins": 15,
+    "ece_10_20_final_claim": false,
+    "aggregation": "mean and sample standard deviation across training seeds; ddof=1",
+    "deterministic_and_mc_pairing": "not strictly paired because MC uses MC-averaged predictions and may have a different error set",
+    "test_exposure": "Test had already been inspected during iterative development; final evidence is not confirmatory."
+  },
+  "checks": {
+    "all_quantitative_files_byte_identical_to_v1": true,
+    "v1_preserved": true,
+    "v1_only_known_manifest_mismatch_is_README": true,
+    "all_v2_output_hashes_current": true
+  },
+  "outputs": [
+    {
+      "role": "final_evidence_output",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v2\\artifact_authority.json",
+      "sha256": "125f7d610b8e39488783b418b6d3b21fe0b0a4ed16edf1afcd8bf3a4e20a1a05",
+      "size_bytes": 1267
+    },
+    {
+      "role": "final_evidence_output",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v2\\boundary_proximity_detection_summary_mean_std.csv",
+      "sha256": "56bd2e0d82c0050eec63c5b475e346dd567369e5895940b64d0228be4a29af1b",
+      "size_bytes": 4404
+    },
+    {
+      "role": "final_evidence_output",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v2\\calibration_temperature_per_seed.csv",
+      "sha256": "cfebbfb972e2a8f08583607af40517a5330cd3b191603da1d82013c37e704092",
+      "size_bytes": 1259
+    },
+    {
+      "role": "final_evidence_output",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v2\\calibration_test_metrics_per_seed.csv",
+      "sha256": "af7550729fe8356476c3487741afbdb21b223533b940847de4a4e0134ff6671d",
+      "size_bytes": 2385
+    },
+    {
+      "role": "final_evidence_output",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v2\\calibration_test_summary_mean_std.csv",
+      "sha256": "87e7eadee9ee60f73208e18699f6cb80c693803439993c1ee50539a2aef8dc74",
+      "size_bytes": 857
+    },
+    {
+      "role": "final_evidence_output",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v2\\conditional_error_detection_summary_mean_std.csv",
+      "sha256": "4b9ccfba55c68a0f1b07ca625b8e0e7c95540dd5411019f9c9ae77035039417d",
+      "size_bytes": 12789
+    },
+    {
+      "role": "final_evidence_output",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v2\\legacy_unified_rq1_comparison.csv",
+      "sha256": "558a026babe55ed627de9380ffc2426e734c442da1429a27354093323ad72c01",
+      "size_bytes": 89676
+    },
+    {
+      "role": "final_evidence_output",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v2\\mc_validation_convergence_evidence.csv",
+      "sha256": "27c8ad82869475ef216d02c01d3ea476c2a66e0f098197ff1b752e4d01724080",
+      "size_bytes": 855
+    },
+    {
+      "role": "final_evidence_output",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v2\\overall_error_detection_summary_mean_std.csv",
+      "sha256": "2c97cf9dbb47c6e29ac0069b737870b4682f75500e60252defc3368f1c906c9a",
+      "size_bytes": 2862
+    },
+    {
+      "role": "final_evidence_output",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v2\\per_seed_boundary_proximity_detection.csv",
+      "sha256": "2efc5c136d580cbe504dfa0843a3bcbb35f2feac48dafdf33f4ec5d2bf268e8d",
+      "size_bytes": 8235
+    },
+    {
+      "role": "final_evidence_output",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v2\\per_seed_conditional_error_detection.csv",
+      "sha256": "b1e486849f3895a21717138fd9e4879424ca3fed73cb6ec03748e3b0576920a9",
+      "size_bytes": 21106
+    },
+    {
+      "role": "final_evidence_output",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v2\\per_seed_overall_error_detection.csv",
+      "sha256": "b7df5df342df265f69c0ffff62dd994678bb0c7afda13e5886cb659a724b7d58",
+      "size_bytes": 4163
+    },
+    {
+      "role": "final_evidence_output",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v2\\per_seed_phase_metrics.csv",
+      "sha256": "48200329d19229836114b5acf3765a28213436501b17d7be9d84acc3a930cffa",
+      "size_bytes": 1194
+    },
+    {
+      "role": "final_evidence_output",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v2\\phase_metrics_summary_mean_std.csv",
+      "sha256": "1bd3915ee2d969b8ad83026b059c5b77590dec953ccf19af2dfdca5c51b74072",
+      "size_bytes": 934
+    },
+    {
+      "role": "final_evidence_output",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v2\\README.md",
+      "sha256": "56bd21ff9e768fdab75a7041a29d50e17a89155715416834e09ae71a30750cb5",
+      "size_bytes": 1123
+    },
+    {
+      "role": "final_evidence_output",
+      "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v2\\rq1_final_evidence_table.csv",
+      "sha256": "a119a0dabb697925f1e7050904ba8556f4c4bce9831ea1ccf90fcd2710c97722",
+      "size_bytes": 43363
+    }
+  ],
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Windows-10-10.0.19045-SP0"
+  },
+  "evidence_status": "three_seed_iterative_development_evidence_not_independent_confirmatory_test",
+  "argv": [
+    "E:\\AutoLaparoProject\\scripts\\42_repair_rq1_evidence_manifest.py"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "config_id": "rq1_final_evidence_v2",
+  "status": "authoritative_thesis_evidence_index",
+  "supersedes": "rq1_final_evidence_v1",
+  "change_scope": "Evidence-manifest repair and authority clarification only; no metric, prediction, training run, split, or conclusion changed.",
+  "source_evidence": {
+    "config": "configs/rq1_final_evidence_v1.json",
+    "output": "outputs/rq1_final_evidence_v1"
+  },
+  "training_seeds": [0, 1, 2],
+  "splits": {
+    "train": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"],
+    "validation": ["11", "12", "13", "14"],
+    "test": ["15", "16", "17", "18", "19", "20", "21"]
+  },
+  "authoritative_components": {
+    "deterministic_and_conditional_analysis": "outputs/rq1_final_evidence_v2",
+    "mc_validation_convergence": "outputs/mc_dropout_convergence_validation_v3",
+    "mc_test": "outputs/mc_dropout_three_seed_protocol_v4",
+    "temperature_scaling": "outputs/temperature_scaling_three_seed_protocol_v2"
+  },
+  "primary_thesis_metrics": {
+    "overall_error_detection": ["AUROC", "AUPR", "Exact AURC"],
+    "transition_conditioned_error_detection": ["near/far AUROC", "near/far AUPR"],
+    "primary_transition_window_sec": 10,
+    "calibration": ["NLL", "ECE-15"],
+    "calibration_supporting": ["multiclass Brier score"]
+  },
+  "secondary_or_protocol_metrics": {
+    "window_sensitivity_sec": [5, 20],
+    "boundary_proximity_detection": "secondary analysis answering a different question from error detection",
+    "mc_T_convergence": "protocol justification rather than a headline scientific result",
+    "reliability_diagrams": "supporting calibration evidence"
+  },
+  "excluded_from_thesis_core": [
+    "near/far AURC",
+    "ECE-10/20 sensitivity claims",
+    "new uncertainty methods",
+    "OOD analysis",
+    "new model training or inference"
+  ],
+  "conclusion_scope": {
+    "supported": "Uncertainty ranks prediction errors overall, while conditional error discrimination near true transitions is only modest; Temperature Scaling improves probability calibration without changing phase labels.",
+    "evidence_status": "three-seed iterative-development evidence, not a fully independent confirmatory test"
+  },
+  "final_output": "outputs/rq1_final_evidence_v2"
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "config_id": "boundary_evaluation_v2",
+  "status": "validation_audited_pending_final_protocol_integration",
+  "effective_date": "2026-07-20",
+  "data_resolution_fps": 1,
+  "boundary_definition": "A boundary occurs at time t when the phase label at t differs from the phase label at t-1.",
+  "matching": {
+    "strategy": "optimal_ordered_one_to_one",
+    "primary_objective": "maximise_matched_boundary_count_within_tolerance",
+    "secondary_objective": "minimise_total_absolute_timing_error",
+    "temporal_order_preserved": true,
+    "each_ground_truth_boundary_used_at_most_once": true,
+    "each_predicted_boundary_used_at_most_once": true
+  },
+  "tolerances_seconds": [5, 10],
+  "reported_metrics": [
+    "precision",
+    "recall",
+    "f1",
+    "predicted_boundary_count",
+    "mean_absolute_matching_error_seconds"
+  ],
+  "legacy_definition": {
+    "config_source": "configs/frozen_protocol_v1.json",
+    "matching": "greedy_one_to_one",
+    "preserved_for_reproduction": true
+  },
+  "validation_audit": {
+    "split": "val",
+    "training_seeds": [0, 1, 2],
+    "method_roles": [
+      "raw",
+      "causal_persistence_minrun5",
+      "rq2_proposed_gate_v1"
+    ],
+    "output": "outputs/validation_boundary_matching_audit_v1",
+    "result": "No TP, F1, or mean-absolute-error differences were observed between legacy greedy and optimal matching for the audited core validation summaries.",
+    "test_outputs_read": false
+  },
+  "change_control": {
+    "note": "This versioned metric definition does not overwrite frozen_protocol_v1 or any legacy output. It must be integrated into a new final protocol before any future test consistency run."
+  }
+}

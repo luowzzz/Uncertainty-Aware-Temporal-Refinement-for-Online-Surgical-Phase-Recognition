@@ -1,0 +1,3 @@
+role,training_seed,video_id,egtp_selected,persistence_5,delta_egtp_minus_persistence
+largest_EGTP_gain,0,20,0.20689655172413793,0.15384615384615383,0.0530503978779841
+largest_EGTP_loss,0,18,0.0425531914893617,0.15686274509803924,-0.11430955360867753

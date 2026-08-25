@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "config_id": "rq2_egtp_transition_type_audit_v1",
+  "status": "frozen_post_hoc_secondary_descriptive_audit",
+  "purpose": "Measure from-phase/to-phase correctness only among the already-defined time-matched RQ2 boundaries for Raw, Persistence-5 and the validation-selected EGTP.",
+  "scope": {
+    "training_seeds": [0, 1, 2],
+    "test_video_ids": ["15", "16", "17", "18", "19", "20", "21"],
+    "methods": ["baseline_raw", "persistence_5", "egtp_selected"],
+    "tolerances_sec": [5, 10],
+    "primary_tolerance_sec": 10
+  },
+  "frozen_source": {
+    "test_protocol": {
+      "path": "configs/rq2_egtp_test_protocol_v1.json",
+      "sha256": "88342bce735b1e5f53f2666b94585bb53fb944ed59bc40dcd544741d222c13f6"
+    },
+    "final_evidence_manifest": {
+      "path": "outputs/rq2_egtp_final_evidence_v1/run_manifest.json",
+      "sha256": "400115594d3495ec726aaafa1e9f918388ea9d3c2604ae3f554bbd5fd035d82d"
+    },
+    "boundary_events": {
+      "path": "outputs/rq2_egtp_final_evidence_v1/test_boundary_events.csv",
+      "sha256": "ecbc38bee71774ec7985006bd80dc530c6d6ca95d99a7b851f240059ac27c974"
+    }
+  },
+  "definitions": {
+    "primary_matching": "optimal_ordered_one_to_one_time_matching",
+    "from_phase_correct": "predicted phase immediately before the matched predicted boundary equals the ground-truth phase immediately before the matched ground-truth boundary",
+    "to_phase_correct": "predicted phase immediately after the matched predicted boundary equals the ground-truth phase immediately after the matched ground-truth boundary",
+    "exact_transition_correct": "both from_phase_correct and to_phase_correct",
+    "denominator": "time-matched boundary pairs only"
+  },
+  "interpretation": {
+    "post_hoc_because_test_was_previously_inspected": true,
+    "descriptive_only": true,
+    "changes_primary_boundary_matching": false,
+    "changes_primary_boundary_f1": false,
+    "used_for_method_or_threshold_selection": false,
+    "can_support_confirmatory_claims": false,
+    "required_caveat": "Transition-type rates are conditional on successful time matching and must be interpreted together with Boundary Recall and their small denominators."
+  },
+  "operation": {
+    "new_model_training": false,
+    "new_model_inference": false,
+    "deterministic_postprocessing_replay_from_saved_logits": true,
+    "new_threshold_search": false
+  }
+}

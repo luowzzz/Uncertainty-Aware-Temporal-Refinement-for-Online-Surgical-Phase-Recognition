@@ -1,0 +1,5 @@
+# Preserve packaged files without automatic line-ending conversion.
+evidence/** -text
+configs/** -text
+scripts/** -text
+tests/** -text

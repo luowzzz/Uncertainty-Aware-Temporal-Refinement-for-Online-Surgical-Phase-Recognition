@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "config_id": "mc_dropout_evaluation_v4",
+  "supersedes": "mc_dropout_evaluation_v3",
+  "status": "frozen_after_code-locked_validation_stability_selection",
+  "selection_split": "val",
+  "test_used_for_selection": false,
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "checkpoints": {
+    "0": {
+      "path": "outputs/v2_lstm_online_resnet18_seed00/checkpoints/best.pt",
+      "epoch": 36,
+      "validation_macro_f1": 0.6282723507649033,
+      "sha256": "47dca8f3f08e4ac862e12abd0d1a07676654068e1e61c3b402f7a9f1b2451fa4"
+    },
+    "1": {
+      "path": "outputs/v2_lstm_online_resnet18_seed01/checkpoints/best.pt",
+      "epoch": 30,
+      "validation_macro_f1": 0.6528704605848746,
+      "sha256": "5fef8973ca150c051ca3158354781cc5ac65e4378b6b1c2b494a728292a26f9b"
+    },
+    "2": {
+      "path": "outputs/v2_lstm_online_resnet18_seed02/checkpoints/best.pt",
+      "epoch": 36,
+      "validation_macro_f1": 0.561064110656276,
+      "sha256": "6a4c14b755d26e13b082b724f07bde0755781b67e062c166708cd7600cbaae52"
+    }
+  },
+  "inference": {
+    "passes": 30,
+    "inference_seed": 0,
+    "rng_scope": "reset_once_at_the_start_of_each_split",
+    "dropout_mode": "model_eval_with_nn_dropout_modules_enabled",
+    "non_dropout_modules": "evaluation_mode",
+    "error_definition": "Incorrect MC-averaged argmax prediction is positive."
+  },
+  "validation_convergence": {
+    "output_directory": "outputs/mc_dropout_convergence_validation_v3",
+    "selected_config_path": "outputs/mc_dropout_convergence_validation_v3/selected_mc_config.json",
+    "selected_config_sha256": "574b8c87c74e5313018e5aed73cac0e854603916513b18ad34583e966066fdb5",
+    "run_manifest_sha256": "1322e77a3f5f48096dd791c64dd2d3c061a512a2f0d97cf57aaece307b02a92f",
+    "validation_videos": [
+      "11",
+      "12",
+      "13",
+      "14"
+    ],
+    "nested_pass_counts": [
+      10,
+      20,
+      30,
+      50
+    ],
+    "reference_pass_count": 50,
+    "stable_candidates": [
+      30,
+      50
+    ],
+    "selection_rule": "Select the smallest T for which every criterion passes for every training seed relative to the nested T=50 reference.",
+    "stability_criteria": {
+      "prediction_disagreement_rate_max": 0.01,
+      "mc_entropy_spearman_min": 0.995,
+      "mc_mutual_information_spearman_min": 0.98,
+      "error_auroc_abs_difference_max": 0.01,
+      "error_aupr_abs_difference_max": 0.01,
+      "aurc_abs_difference_max": 0.005
+    },
+    "selection_result": "T=10 and T=20 failed at least one criterion; T=30 and T=50 passed for all three seeds; therefore T=30 is the minimum stable candidate.",
+    "timing_mean_seconds_over_four_validation_videos": {
+      "10": 1.335962,
+      "20": 2.637382,
+      "30": 3.930696,
+      "50": 6.550699
+    },
+    "test_files_read": false
+  },
+  "final_evaluation": {
+    "split": "test",
+    "videos": [
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21"
+    ],
+    "scores": [
+      "mc_entropy",
+      "mc_mutual_info"
+    ],
+    "metrics": [
+      "error_auroc",
+      "error_aupr",
+      "exact_aurc"
+    ],
+    "report_per_seed": true,
+    "report_mean_and_sample_standard_deviation": true,
+    "report_per_video": true,
+    "report_runtime": true,
+    "test_must_not_change_T": true
+  },
+  "evidence_status": "traceable_iterative_development_result",
+  "selection_limit_note": "The practical stability thresholds were formalised during reproducibility hardening after an initial exploratory validation analysis; they are project operating tolerances, not universal convergence laws.",
+  "test_exposure_note": "The test split had already been inspected earlier. Frozen test reruns are reproducibility and consistency evidence, not a new independent confirmatory test."
+}

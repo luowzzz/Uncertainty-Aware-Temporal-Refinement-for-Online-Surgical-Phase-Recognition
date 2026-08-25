@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "config_id": "rq1_final_evidence_v1",
+  "status": "frozen_for_final_evidence_consolidation",
+  "evaluation_config_id": "rq1_evaluation_v4",
+  "evaluation_config_path": "configs/rq1_evaluation_v4.json",
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "splits": {
+    "validation": {
+      "name": "val",
+      "video_ids": [
+        "11",
+        "12",
+        "13",
+        "14"
+      ]
+    },
+    "test": {
+      "name": "test",
+      "video_ids": [
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21"
+      ]
+    }
+  },
+  "authoritative_inputs": {
+    "deterministic": {
+      "run_pattern": "outputs/v2_lstm_online_resnet18_seed{seed:02d}",
+      "scores": [
+        "one_minus_confidence",
+        "normalised_entropy"
+      ]
+    },
+    "mc_validation": {
+      "output": "outputs/mc_dropout_convergence_validation_v3",
+      "frame_scores": "validation_frame_scores.csv.gz",
+      "selected_T": 30,
+      "inference_seed": 0,
+      "scores": [
+        "mc_entropy",
+        "mc_mutual_info"
+      ],
+      "role": "validation convergence and T=30 validation evidence"
+    },
+    "mc_test": {
+      "run_pattern": "outputs/rq1_mc_dropout_t30_seed{seed:02d}_v4",
+      "complete_protocol_output": "outputs/mc_dropout_three_seed_protocol_v4",
+      "selected_T": 30,
+      "inference_seed": 0,
+      "rng_scope": "reset_once_at_the_start_of_each_split",
+      "scores": [
+        "mc_entropy",
+        "mc_mutual_info"
+      ],
+      "role": "final three-seed test consistency evidence"
+    },
+    "calibration": {
+      "config": "configs/temperature_scaling_calibration_v2.json",
+      "complete_protocol_output": "outputs/temperature_scaling_three_seed_protocol_v2",
+      "input": "original raw deterministic logits",
+      "fit_split": "val",
+      "test_used_for_fitting_or_selection": false,
+      "primary_ece_bins": 15,
+      "ece_bin_sensitivity_in_final_protocol": false
+    }
+  },
+  "metrics": {
+    "overall_error_detection": [
+      "auroc",
+      "aupr",
+      "exact_aurc"
+    ],
+    "conditional_error_detection": {
+      "metrics": [
+        "auroc",
+        "aupr"
+      ],
+      "regions": [
+        "near_boundary",
+        "far_from_boundary"
+      ],
+      "windows_seconds": [
+        5,
+        10,
+        20
+      ]
+    },
+    "boundary_proximity_detection": {
+      "positive": "distance to the nearest ground-truth boundary is less than or equal to the window",
+      "metrics": [
+        "auroc",
+        "aupr"
+      ],
+      "windows_seconds": [
+        5,
+        10,
+        20
+      ]
+    },
+    "calibration": [
+      "negative_log_likelihood",
+      "multiclass_brier_score",
+      "top_label_ece_equal_width_15_bins",
+      "accuracy_invariance",
+      "macro_f1_invariance"
+    ],
+    "aggregation": "mean and sample standard deviation across training seeds; ddof=1"
+  },
+  "explicit_exclusions": {
+    "near_far_aurc": "not included because the dissertation does not currently claim selective rejection specifically within transition regions",
+    "ece_10_20": "legacy sensitivity analysis only; the final raw-logit calibration protocol freezes ECE-15",
+    "new_uncertainty_methods": "out of scope",
+    "new_training_or_inference": "out of scope"
+  },
+  "conclusion_scope": {
+    "supported": [
+      "uncertainty identifies prediction errors overall",
+      "transition regions have higher error rates and higher uncertainty",
+      "conditional error discrimination near transitions is only modest"
+    ],
+    "not_supported": [
+      "uncertainty perfectly identifies errors near boundaries",
+      "every video benefits equally",
+      "results constitute an independent confirmatory test"
+    ]
+  },
+  "evidence_status": "three_seed_iterative_development_evidence_not_independent_confirmatory_test",
+  "final_output": "outputs/rq1_final_evidence_v1"
+}

@@ -1,0 +1,672 @@
+{
+  "schema_version": 1,
+  "analysis": "rq2_egtp_post_hoc_transition_type_audit_v1",
+  "created_at_utc": "2026-07-31T18:48:05.238725+00:00",
+  "operation": {
+    "new_model_training": false,
+    "new_model_inference": false,
+    "deterministic_postprocessing_replay": true,
+    "method_or_threshold_selection": false,
+    "primary_boundary_matching_changed": false
+  },
+  "script": {
+    "path": "E:\\AutoLaparoProject\\scripts\\41_add_egtp_transition_type_audit.py",
+    "sha256": "f027d66b78a19c0f172a30222aa6c43f3055026639d148627e9ea8c35d211908",
+    "argv": [
+      "E:\\AutoLaparoProject\\scripts\\41_add_egtp_transition_type_audit.py"
+    ]
+  },
+  "protocol": {
+    "path": "E:\\AutoLaparoProject\\configs\\rq2_egtp_transition_type_audit_v1.json",
+    "sha256": "4c5943d60fd2875863774cef5791d1eed2d2c041f82623b5c5a53a1c1047b3ad"
+  },
+  "source_manifest": {
+    "path": "E:\\AutoLaparoProject\\outputs\\rq2_egtp_final_evidence_v1\\run_manifest.json",
+    "sha256": "400115594d3495ec726aaafa1e9f918388ea9d3c2604ae3f554bbd5fd035d82d"
+  },
+  "source_events": {
+    "path": "E:\\AutoLaparoProject\\outputs\\rq2_egtp_final_evidence_v1\\test_boundary_events.csv",
+    "sha256": "ecbc38bee71774ec7985006bd80dc530c6d6ca95d99a7b851f240059ac27c974"
+  },
+  "saved_logit_sources": [
+    {
+      "role": "deterministic_per_second_cross_check",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\model_outputs\\per_second_outputs_test.csv",
+      "sha256": "7d5460e34ed5d4183776ab73fc5e7e563fd3311d89cf487b5e79e6f2c168c5d6",
+      "size_bytes": 5548110,
+      "training_seed": 0,
+      "split": "test"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\predictions\\test_video_15_predictions.npz",
+      "sha256": "ec93aaeb3e399f263e278e0bebac31db32b11fa65db74c70a50217fca7350d95",
+      "size_bytes": 190476,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "15"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\15_labels.npy",
+      "sha256": "5a0c1e3f35bd92ecb1e25e80702cd7e7c27c6c078a1b62d0972ca6538ccc5a3d",
+      "size_bytes": 29352,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "15"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\15_meta.csv",
+      "sha256": "65f5c551ec6c620a015c02c8c097efc677ffc6975daca43f01b5df8f3b23a959",
+      "size_bytes": 248388,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "15"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\predictions\\test_video_16_predictions.npz",
+      "sha256": "852abf6596ff52eab97f197d452d7338f6474fda0b00989304368ab00ba133ef",
+      "size_bytes": 187772,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "16"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\16_labels.npy",
+      "sha256": "18cee65d8b4aa21326acb53a6929aa4d10f1382b51d7ebde4b0df34155abe295",
+      "size_bytes": 29024,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "16"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\16_meta.csv",
+      "sha256": "642eefbc1baff4809ea9a6914160c755686615b300a9410c0df7fee6be32ba1c",
+      "size_bytes": 245559,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "16"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\predictions\\test_video_17_predictions.npz",
+      "sha256": "3d81487eaf9b1b77b55c10ee94255526eabad4f3851fd4ee5cb15fd18549db62",
+      "size_bytes": 242763,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "17"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\17_labels.npy",
+      "sha256": "10021cfae784db91246e74a679225f211ba3334f117a271dc0fa1a7f2bdc17d1",
+      "size_bytes": 37552,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "17"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\17_meta.csv",
+      "sha256": "ef892fda7ad66d57dee05a56ac74c4f3d92c88ec37f73950d2240f287bea0ef5",
+      "size_bytes": 319791,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "17"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\predictions\\test_video_18_predictions.npz",
+      "sha256": "4ede601678b713580a370c0385e089c2ddba148d992ca99d1e4072cc52633300",
+      "size_bytes": 185045,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "18"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\18_labels.npy",
+      "sha256": "7ded6e1081fd08818df3aef37250f863f6f6ae9bc825e793a6d9a4530922c41c",
+      "size_bytes": 28496,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "18"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\18_meta.csv",
+      "sha256": "91d58acfbcdf20e440c8529e8b26a790bac0cacd4e86ffbfa38129ab649892e8",
+      "size_bytes": 241005,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "18"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\predictions\\test_video_19_predictions.npz",
+      "sha256": "ec592e1c797d9e93f6e48b59629c9c2a6d68552463f4e1cf6150386261c033a2",
+      "size_bytes": 178344,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "19"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\19_labels.npy",
+      "sha256": "244d207668706e9c58fef33146cb54b24315d2fdbbd010b8e3e72bac94a9117d",
+      "size_bytes": 27432,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "19"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\19_meta.csv",
+      "sha256": "fa9f308e106c36a756074af8c947bc83030c18139d1a6532baf50388fb5508c2",
+      "size_bytes": 231828,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "19"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\predictions\\test_video_20_predictions.npz",
+      "sha256": "2c4a3be162701bb75e2ae99e0b7df838101959428a8564c7e17047b5b266b084",
+      "size_bytes": 251075,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "20"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\20_labels.npy",
+      "sha256": "2926d5fa1fbf9712f36b894ca127021ef174caf3bfe3d2447c76e8ff0fd96a9e",
+      "size_bytes": 38784,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "20"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\20_meta.csv",
+      "sha256": "f6b706c5bf868257b8653ff526feca22bfb417c7ee95367a7ac8c9feec2833e9",
+      "size_bytes": 330571,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "20"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed00\\predictions\\test_video_21_predictions.npz",
+      "sha256": "0ab5c252165101d6212a3371ffc39e19f98b66f6ed0e5084955636c8a127e235",
+      "size_bytes": 226095,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "21"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\21_labels.npy",
+      "sha256": "ca7355c6ef09a82232758842fd1324fd6d4e422293953fb3d33447966afd6a17",
+      "size_bytes": 34736,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "21"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\21_meta.csv",
+      "sha256": "8bad222c8fd832c3265d44e61c714f2e96b28b5f5a99e404abb2f5669b6e7176",
+      "size_bytes": 295151,
+      "training_seed": 0,
+      "split": "test",
+      "video_id": "21"
+    },
+    {
+      "role": "deterministic_per_second_cross_check",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed01\\model_outputs\\per_second_outputs_test.csv",
+      "sha256": "174c973c42f5afd6ed3f659f675cb13363c64a173c997f7f1125965db8238494",
+      "size_bytes": 5497703,
+      "training_seed": 1,
+      "split": "test"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed01\\predictions\\test_video_15_predictions.npz",
+      "sha256": "cd6ba1648fa4c588d189f9db07c24d1145ee53d9ce81a1887c06de3f0d69e48c",
+      "size_bytes": 190153,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "15"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\15_labels.npy",
+      "sha256": "5a0c1e3f35bd92ecb1e25e80702cd7e7c27c6c078a1b62d0972ca6538ccc5a3d",
+      "size_bytes": 29352,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "15"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\15_meta.csv",
+      "sha256": "65f5c551ec6c620a015c02c8c097efc677ffc6975daca43f01b5df8f3b23a959",
+      "size_bytes": 248388,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "15"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed01\\predictions\\test_video_16_predictions.npz",
+      "sha256": "35ba8530b121cbd62dcb9697af6f584d3e4803cb0e8a06a0dc86b6cb90cc74c6",
+      "size_bytes": 187221,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "16"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\16_labels.npy",
+      "sha256": "18cee65d8b4aa21326acb53a6929aa4d10f1382b51d7ebde4b0df34155abe295",
+      "size_bytes": 29024,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "16"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\16_meta.csv",
+      "sha256": "642eefbc1baff4809ea9a6914160c755686615b300a9410c0df7fee6be32ba1c",
+      "size_bytes": 245559,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "16"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed01\\predictions\\test_video_17_predictions.npz",
+      "sha256": "7b311551058b34c11115416b5fc115adde69a4d1d97264b77bdccc05d8514c9e",
+      "size_bytes": 241721,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "17"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\17_labels.npy",
+      "sha256": "10021cfae784db91246e74a679225f211ba3334f117a271dc0fa1a7f2bdc17d1",
+      "size_bytes": 37552,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "17"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\17_meta.csv",
+      "sha256": "ef892fda7ad66d57dee05a56ac74c4f3d92c88ec37f73950d2240f287bea0ef5",
+      "size_bytes": 319791,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "17"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed01\\predictions\\test_video_18_predictions.npz",
+      "sha256": "f9eb21b4deccd22b26f3afd91d6e184a9bc71a10575305314e8d3e98907502d5",
+      "size_bytes": 184409,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "18"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\18_labels.npy",
+      "sha256": "7ded6e1081fd08818df3aef37250f863f6f6ae9bc825e793a6d9a4530922c41c",
+      "size_bytes": 28496,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "18"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\18_meta.csv",
+      "sha256": "91d58acfbcdf20e440c8529e8b26a790bac0cacd4e86ffbfa38129ab649892e8",
+      "size_bytes": 241005,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "18"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed01\\predictions\\test_video_19_predictions.npz",
+      "sha256": "c62ca7e275ad94fa4991c8998113eaca6dccaf042444a31764b4c39aa44301f6",
+      "size_bytes": 177115,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "19"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\19_labels.npy",
+      "sha256": "244d207668706e9c58fef33146cb54b24315d2fdbbd010b8e3e72bac94a9117d",
+      "size_bytes": 27432,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "19"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\19_meta.csv",
+      "sha256": "fa9f308e106c36a756074af8c947bc83030c18139d1a6532baf50388fb5508c2",
+      "size_bytes": 231828,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "19"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed01\\predictions\\test_video_20_predictions.npz",
+      "sha256": "b4f7ae1b44c2ba73a6e089d85b7b9a5271f27bd8e7646dbc00dc366f117fc785",
+      "size_bytes": 250018,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "20"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\20_labels.npy",
+      "sha256": "2926d5fa1fbf9712f36b894ca127021ef174caf3bfe3d2447c76e8ff0fd96a9e",
+      "size_bytes": 38784,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "20"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\20_meta.csv",
+      "sha256": "f6b706c5bf868257b8653ff526feca22bfb417c7ee95367a7ac8c9feec2833e9",
+      "size_bytes": 330571,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "20"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed01\\predictions\\test_video_21_predictions.npz",
+      "sha256": "40a42167f942facb5c93d289b30705968c0c26c77e71decaaa91ca82103208ec",
+      "size_bytes": 225079,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "21"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\21_labels.npy",
+      "sha256": "ca7355c6ef09a82232758842fd1324fd6d4e422293953fb3d33447966afd6a17",
+      "size_bytes": 34736,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "21"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\21_meta.csv",
+      "sha256": "8bad222c8fd832c3265d44e61c714f2e96b28b5f5a99e404abb2f5669b6e7176",
+      "size_bytes": 295151,
+      "training_seed": 1,
+      "split": "test",
+      "video_id": "21"
+    },
+    {
+      "role": "deterministic_per_second_cross_check",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed02\\model_outputs\\per_second_outputs_test.csv",
+      "sha256": "1883e2ddbfd33d49ae10ca9615e47e349d9019e90d733f633c3d40ddcb35f2e0",
+      "size_bytes": 5537506,
+      "training_seed": 2,
+      "split": "test"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed02\\predictions\\test_video_15_predictions.npz",
+      "sha256": "3e07c241aaf45667d06a8c7ed72a1f882e4b1c00c4be837d70b6ee6933b98cfc",
+      "size_bytes": 190107,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "15"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\15_labels.npy",
+      "sha256": "5a0c1e3f35bd92ecb1e25e80702cd7e7c27c6c078a1b62d0972ca6538ccc5a3d",
+      "size_bytes": 29352,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "15"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\15_meta.csv",
+      "sha256": "65f5c551ec6c620a015c02c8c097efc677ffc6975daca43f01b5df8f3b23a959",
+      "size_bytes": 248388,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "15"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed02\\predictions\\test_video_16_predictions.npz",
+      "sha256": "34e79da3558853face5e14b941af52ba8f31064d8433aa38429d86b97fa9a455",
+      "size_bytes": 187802,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "16"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\16_labels.npy",
+      "sha256": "18cee65d8b4aa21326acb53a6929aa4d10f1382b51d7ebde4b0df34155abe295",
+      "size_bytes": 29024,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "16"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\16_meta.csv",
+      "sha256": "642eefbc1baff4809ea9a6914160c755686615b300a9410c0df7fee6be32ba1c",
+      "size_bytes": 245559,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "16"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed02\\predictions\\test_video_17_predictions.npz",
+      "sha256": "7a18033bb7a6737c88b53736a6b3a9e7956cea52189b1d99dbe116518a22552c",
+      "size_bytes": 242661,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "17"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\17_labels.npy",
+      "sha256": "10021cfae784db91246e74a679225f211ba3334f117a271dc0fa1a7f2bdc17d1",
+      "size_bytes": 37552,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "17"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\17_meta.csv",
+      "sha256": "ef892fda7ad66d57dee05a56ac74c4f3d92c88ec37f73950d2240f287bea0ef5",
+      "size_bytes": 319791,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "17"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed02\\predictions\\test_video_18_predictions.npz",
+      "sha256": "a08d1d90480ca6d05fc65aa06f5f82ff98f29b7a855f22b723abc36e82b3bd3f",
+      "size_bytes": 184526,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "18"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\18_labels.npy",
+      "sha256": "7ded6e1081fd08818df3aef37250f863f6f6ae9bc825e793a6d9a4530922c41c",
+      "size_bytes": 28496,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "18"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\18_meta.csv",
+      "sha256": "91d58acfbcdf20e440c8529e8b26a790bac0cacd4e86ffbfa38129ab649892e8",
+      "size_bytes": 241005,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "18"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed02\\predictions\\test_video_19_predictions.npz",
+      "sha256": "79ee9452aaf997c08683aaa06afc6d6c33edaf8126bb9080c72e774996322954",
+      "size_bytes": 177986,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "19"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\19_labels.npy",
+      "sha256": "244d207668706e9c58fef33146cb54b24315d2fdbbd010b8e3e72bac94a9117d",
+      "size_bytes": 27432,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "19"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\19_meta.csv",
+      "sha256": "fa9f308e106c36a756074af8c947bc83030c18139d1a6532baf50388fb5508c2",
+      "size_bytes": 231828,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "19"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed02\\predictions\\test_video_20_predictions.npz",
+      "sha256": "295f1d185c34d5a6072d5443b6fdffc57aaa1ffbd7c702e511e4613cbc118891",
+      "size_bytes": 250671,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "20"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\20_labels.npy",
+      "sha256": "2926d5fa1fbf9712f36b894ca127021ef174caf3bfe3d2447c76e8ff0fd96a9e",
+      "size_bytes": 38784,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "20"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\20_meta.csv",
+      "sha256": "f6b706c5bf868257b8653ff526feca22bfb417c7ee95367a7ac8c9feec2833e9",
+      "size_bytes": 330571,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "20"
+    },
+    {
+      "role": "original_raw_logits_npz",
+      "path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed02\\predictions\\test_video_21_predictions.npz",
+      "sha256": "01e62672458620e2c8d1ee877fb67cc3c9af23dd5c5a18068f254c40644b8e7c",
+      "size_bytes": 225107,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "21"
+    },
+    {
+      "role": "feature_labels",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\21_labels.npy",
+      "sha256": "ca7355c6ef09a82232758842fd1324fd6d4e422293953fb3d33447966afd6a17",
+      "size_bytes": 34736,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "21"
+    },
+    {
+      "role": "feature_metadata",
+      "path": "E:\\AutoLaparoProject\\data\\features\\resnet18\\21_meta.csv",
+      "sha256": "8bad222c8fd832c3265d44e61c714f2e96b28b5f5a99e404abb2f5669b6e7176",
+      "size_bytes": 295151,
+      "training_seed": 2,
+      "split": "test",
+      "video_id": "21"
+    }
+  ],
+  "checks": {
+    "replayed_time_match_counts_equal_authority": true,
+    "primary_boundary_metrics_unchanged": true,
+    "conditional_denominator_is_time_matched_pairs": true,
+    "test_used_for_selection_or_retuning": false
+  },
+  "outputs": [
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\rq2_egtp_transition_type_audit_v1\\README.md",
+      "sha256": "41b0afbef998c2646d15686577407e28c90eb9e0aaeab52786c1b60697bc4cd8",
+      "size_bytes": 701
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\rq2_egtp_transition_type_audit_v1\\time_matched_transition_type_confusion.csv",
+      "sha256": "22a0c5bfd80490084d763ce9f0fca978e0eff435f4d3c6b0043d1601d3ab6df7",
+      "size_bytes": 4252
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\rq2_egtp_transition_type_audit_v1\\time_matched_transition_type_detail.csv",
+      "sha256": "5461bf91cd95de04b4adffce835d9c53434778fa1ded24636f892644ae94045d",
+      "size_bytes": 16253
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\rq2_egtp_transition_type_audit_v1\\transition_type_correctness_by_seed_video.csv",
+      "sha256": "4fb5e1c1df3c360416199444a02dbcff2cc5ba8f5573b9702bc6acb517e058bf",
+      "size_bytes": 5699
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\rq2_egtp_transition_type_audit_v1\\transition_type_correctness_mean_std.csv",
+      "sha256": "fe06a3b56f17729dde1c762f1f1760ec03a58080f043c8dc3fa2beb4c69bffc6",
+      "size_bytes": 1229
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\rq2_egtp_transition_type_audit_v1\\transition_type_correctness_per_seed.csv",
+      "sha256": "33ff0c27fdf63eb94accfd7e817af2cabd8fd9ac32a7280a4b640ebbc5552608",
+      "size_bytes": 1386
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\outputs\\rq2_egtp_transition_type_audit_v1\\transition_type_correctness_pooled.csv",
+      "sha256": "6e83a2d48fb56dd90d6011322cea7fb23854d2ef42c70accc616afa87a0e17b0",
+      "size_bytes": 683
+    }
+  ],
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Windows-10-10.0.19045-SP0"
+  },
+  "evidence_status": "post_hoc_secondary_descriptive_three_seed_iterative_development_evidence"
+}

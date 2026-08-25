@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "authority_id": "rq1_final_evidence_v2",
+  "status": "authoritative_thesis_evidence_index",
+  "supersedes": "rq1_final_evidence_v1",
+  "change_scope": "manifest repair only; all quantitative evidence files are byte-identical copies of v1",
+  "configuration": {
+    "path": "E:\\AutoLaparoProject\\configs\\rq1_final_evidence_v2.json",
+    "sha256": "d651e5fcaf7fc8a9ae80d6ded2d04e7057c08d4d18120c8a133502cc529da38b"
+  },
+  "source_bundle": {
+    "path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v1",
+    "manifest_path": "E:\\AutoLaparoProject\\outputs\\rq1_final_evidence_v1\\run_manifest.json",
+    "manifest_sha256": "c9dee66e0ac47c19420766552cea208dd866f8606278c06c1a9ebfaab7bacd27"
+  },
+  "authoritative_components": {
+    "deterministic": [
+      "outputs/v2_lstm_online_resnet18_seed00",
+      "outputs/v2_lstm_online_resnet18_seed01",
+      "outputs/v2_lstm_online_resnet18_seed02"
+    ],
+    "mc_validation": "outputs/mc_dropout_convergence_validation_v3",
+    "mc_test": "outputs/mc_dropout_three_seed_protocol_v4",
+    "calibration": "outputs/temperature_scaling_three_seed_protocol_v2"
+  },
+  "evidence_status": "three_seed_iterative_development_evidence_not_independent_confirmatory_test"
+}

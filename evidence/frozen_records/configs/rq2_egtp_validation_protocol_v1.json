@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "config_id": "rq2_egtp_validation_protocol_v1",
+  "status": "frozen_before_new_validation_metric_evaluation",
+  "research_question": "Can a causal evidence-gated transition policy improve temporal stability in online surgical phase recognition while preserving frame-level performance and transition sensitivity?",
+  "method_source": {
+    "name": "Evidence-Gated Transition Predictor",
+    "citation": "Liu et al., Stabilizing Temporal Inference Dynamics for Online Surgical Phase Recognition, arXiv:2605.16387v1, 2026",
+    "paper_status": "preprint",
+    "paper_autolaparo_threshold_k": 0.8,
+    "implementation_note": "The paper does not define single-observation and zero-variance numerical handling. This project freezes initial_std=1.0, population Welford running standard deviation, and std_floor=1e-6."
+  },
+  "data": {
+    "training_video_ids": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"],
+    "validation_video_ids": ["11", "12", "13", "14"],
+    "test_video_ids": ["15", "16", "17", "18", "19", "20", "21"],
+    "training_seeds": [0, 1, 2],
+    "validation_only_until_final_freeze": true
+  },
+  "initial_stage": {
+    "description": "Apply EGTP to the frozen baseline LSTM without retraining.",
+    "probability_sources": ["uncalibrated", "temperature_scaled"],
+    "paper_fixed_k": 0.8
+  },
+  "single_controlled_optimisation": {
+    "description": "Add the paper-derived TEC training loss, then re-evaluate the same EGTP protocol on validation.",
+    "architecture_change": false,
+    "baseline_architecture_reused": true,
+    "tec_alpha": 19.0,
+    "tec_sigma": 1.5,
+    "tec_onset_window": 8,
+    "checkpoint_selection_split": "val",
+    "checkpoint_selection_metric": "macro_f1"
+  },
+  "egtp": {
+    "epsilon": 1e-8,
+    "initial_std": 1.0,
+    "std_floor": 1e-6,
+    "dynamic_normalisation": true,
+    "candidate_k": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0,
+      1.1,
+      1.2,
+      1.3,
+      1.4,
+      1.5
+    ],
+    "candidate_range_rationale": "The fixed grid includes the paper's AutoLaparo k=0.8 and the reported AutoLaparo best values 0.6 and 0.8, with symmetric local sensitivity coverage. The list is frozen before computing new validation metrics."
+  },
+  "variants": [
+    "baseline_uncalibrated",
+    "baseline_calibrated",
+    "tec_uncalibrated",
+    "tec_calibrated"
+  ],
+  "operating_point_selection": {
+    "reference": "original frozen baseline raw argmax for the same training seed",
+    "strict_set_per_seed": [
+      "macro_f1 >= reference macro_f1",
+      "boundary_recall_tol10 >= reference boundary_recall_tol10",
+      "predicted_boundary_count < reference predicted_boundary_count"
+    ],
+    "basic_set_per_seed": [
+      "macro_f1 >= reference macro_f1",
+      "predicted_boundary_count < reference predicted_boundary_count"
+    ],
+    "all_three_seeds_must_satisfy_constraints": true,
+    "if_strict_exists": "select maximum three-seed mean boundary_f1_tol10; ties select smaller k",
+    "if_no_strict_but_basic_exists": "select k_F1 and k_recall; final comparison uses k_F1 and k_recall is supplementary",
+    "if_basic_empty": "constraint_failure; report best boundary F1 descriptively only",
+    "final_variant_rule": "Choose the valid variant at the highest available feasibility layer with maximum mean boundary_f1_tol10; ties prefer higher mean macro_f1, then uncalibrated probabilities, then the smaller k.",
+    "paper_fixed_k_reported_regardless_of_selection": true
+  },
+  "evaluation": {
+    "boundary_matching": "optimal_ordered_one_to_one",
+    "boundary_tolerances_sec": [5, 10],
+    "primary_boundary_tolerance_sec": 10,
+    "metrics": [
+      "accuracy",
+      "macro_f1",
+      "weighted_f1",
+      "predicted_boundary_count",
+      "boundary_precision",
+      "boundary_recall",
+      "boundary_f1",
+      "matched_signed_delay",
+      "matched_absolute_error",
+      "edit_score",
+      "temporal_fragmentation_index"
+    ]
+  },
+  "test_exposure": {
+    "historical_test_already_inspected": true,
+    "new_test_metrics_must_not_select_or_modify_method": true,
+    "evidence_label": "three-seed iterative-development evidence"
+  },
+  "change_control": "Any change after validation evaluation requires a new protocol version. Test evaluation begins only after a versioned final selection record is written."
+}

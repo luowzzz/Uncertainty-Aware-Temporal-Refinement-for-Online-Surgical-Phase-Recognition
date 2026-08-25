@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "record_id": "rq2_canonical_method_naming_v1",
+  "status": "active_for_dissertation_ppt_and_future_reporting",
+  "created_at_utc": "2026-07-23T00:15:00Z",
+  "canonical_proposed_method": {
+    "display_name": "Gate v1",
+    "long_name": "Calibrated Cumulative Log-Ratio Transition Gate",
+    "canonical_method_id": "gate_v1",
+    "internal_frozen_method_id": "logratio_calibrated_A_F1",
+    "frozen_A": 8.62667021031704
+  },
+  "retired_exploratory_method": {
+    "display_name": "Historic Exploratory Gate",
+    "internal_historical_config_id": "rq2_proposed_gate_v1",
+    "classification": "retired_legacy_exploratory_multi_threshold_rule",
+    "include_in_main_dissertation_or_ppt": false
+  },
+  "comparators": {
+    "raw": "Raw",
+    "persistence_5": "Persistence-5"
+  },
+  "naming_policy": {
+    "use_gate_v1_in_dissertation": true,
+    "use_gate_v1_in_ppt": true,
+    "use_gate_v1_in_main_tables": true,
+    "use_gate_v2_in_future_user_facing_material": false,
+    "preserve_internal_frozen_artifact_ids": true,
+    "reason_for_preserving_internal_ids": "Frozen paths and hashes are immutable provenance identifiers, not dissertation method names."
+  },
+  "supersedes_dissertation_view": {
+    "path": "outputs/rq2_dissertation_evidence_v1/run_manifest.json",
+    "sha256": "33ac538a32779979ea64dcff00a0f5512b368c92cff00b830654001e4084afd0"
+  },
+  "retirement_record": {
+    "path": "configs/rq2_legacy_gate_v1_retirement_record.json",
+    "sha256": "0c77f6be16d6b5c14759d6b348cd2ed313d3f4855340f4941060e244d0beed7c"
+  },
+  "integrity_note": "This record changes canonical reporting names only. It does not alter algorithms, selections, metrics, test exposure, or historical evidence."
+}

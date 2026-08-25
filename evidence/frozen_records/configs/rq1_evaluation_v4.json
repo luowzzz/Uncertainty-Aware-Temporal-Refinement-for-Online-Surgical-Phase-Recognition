@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "config_id": "rq1_evaluation_v4",
+  "supersedes": "rq1_evaluation_v3",
+  "status": "frozen_after_complete_three-seed_mc_and_raw-logit_calibration_protocols",
+  "training_seeds": [0, 1, 2],
+  "report_splits": ["val", "test"],
+  "deterministic": {
+    "prediction": "argmax of baseline softmax probabilities",
+    "error_definition": "incorrect deterministic argmax prediction is positive",
+    "primary_uncertainty_scores": [
+      "one_minus_confidence",
+      "normalised_entropy"
+    ]
+  },
+  "mc_dropout": {
+    "config_path": "configs/mc_dropout_evaluation_v4.json",
+    "complete_protocol_output": "outputs/mc_dropout_three_seed_protocol_v4",
+    "passes": 30,
+    "training_seeds": [0, 1, 2],
+    "inference_seed": 0,
+    "rng_scope": "reset_once_at_the_start_of_each_split",
+    "prediction": "argmax of the mean probability across stochastic passes",
+    "error_definition": "incorrect MC-averaged argmax prediction is positive",
+    "primary_uncertainty_scores": [
+      "mc_entropy",
+      "mc_mutual_info"
+    ],
+    "secondary_uncertainty_scores": [
+      "mc_1_minus_conf",
+      "mc_variation_ratio"
+    ],
+    "required_reporting": [
+      "per_training_seed",
+      "mean_and_sample_standard_deviation",
+      "per_video",
+      "inference_runtime"
+    ],
+    "pairing_note": "MC scores use MC-averaged predictions and therefore do not share exactly the same error set as deterministic scores."
+  },
+  "error_detection": {
+    "metrics": ["auroc", "aupr"],
+    "regions": [
+      "overall",
+      "near_ground_truth_boundary",
+      "far_from_ground_truth_boundary"
+    ],
+    "boundary_windows_seconds": [5, 10, 20]
+  },
+  "boundary_proximity_detection": {
+    "positive_definition": "frame lies within the stated inclusive time window of a ground-truth phase boundary",
+    "metrics": ["auroc", "aupr"],
+    "windows_seconds": [5, 10, 20]
+  },
+  "selective_prediction": {
+    "config_path": "configs/selective_prediction_evaluation_v2.json",
+    "primary_metric": "exact_aurc_lower_is_better",
+    "reported_coverages": [0.5, 0.8, 1.0]
+  },
+  "calibration": {
+    "config_path": "configs/temperature_scaling_calibration_v2.json",
+    "complete_protocol_output": "outputs/temperature_scaling_three_seed_protocol_v2",
+    "method": "one positive scalar temperature per training seed",
+    "input": "original raw deterministic logits saved by the validation-selected checkpoint",
+    "probability_to_logit_reconstruction_used": false,
+    "fit_split": "val",
+    "fit_video_ids": ["11", "12", "13", "14"],
+    "objective": "pooled per-second multiclass negative log likelihood",
+    "test_used_for_fitting_or_selection": false,
+    "test_video_ids": ["15", "16", "17", "18", "19", "20", "21"],
+    "reported_metrics": [
+      "negative_log_likelihood",
+      "multiclass_brier_score",
+      "top_label_ece_equal_width_15_bins",
+      "accuracy_invariance",
+      "macro_f1_invariance"
+    ],
+    "required_reporting": [
+      "per_training_seed",
+      "mean_and_sample_standard_deviation",
+      "per_video",
+      "reliability_diagram_per_seed"
+    ],
+    "rq2_effect": "none; calibrated probabilities are diagnostic and do not replace the probabilities or thresholds used by rq2_proposed_gate_v1"
+  },
+  "aggregation": {
+    "centre": "mean",
+    "spread": "sample_standard_deviation",
+    "ddof": 1
+  },
+  "test_exposure_note": "The test split had already been inspected during iterative method development. Test summaries under this configuration are reproducibility and consistency evidence, not a fully independent confirmatory test.",
+  "ood": {
+    "included": false,
+    "reason": "Excluded from the current project scope by the project owner."
+  }
+}

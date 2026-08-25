@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "config_id": "rq2_egtp_validation_selection_v1",
+  "status": "frozen_after_validation_before_new_test_evaluation",
+  "created_at_utc": "2026-07-29T13:19:36.225597+00:00",
+  "protocol": {
+    "path": "E:\\AutoLaparoProject\\configs\\rq2_egtp_validation_protocol_v1.json",
+    "sha256": "1174bbb2d017affc7607d57a149f945930bba8739143fe13555fc7df46b88a6b"
+  },
+  "selection_split": "val",
+  "validation_video_ids": [
+    "11",
+    "12",
+    "13",
+    "14"
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "variant_selections": {
+    "baseline_uncalibrated": {
+      "variant_id": "baseline_uncalibrated",
+      "has_strict_set": false,
+      "has_basic_set": true,
+      "has_effective_operating_point": true,
+      "selection_status": "basic_only",
+      "points": {
+        "A_F1": {
+          "A": 0.6,
+          "selection_metric": "boundary_f1_tol10_mean",
+          "selection_metric_value": 0.04970258907890209,
+          "descriptive_only": false
+        },
+        "A_recall": {
+          "A": 0.1,
+          "selection_metric": "boundary_recall_tol10_mean",
+          "selection_metric_value": 0.27272727272727276,
+          "descriptive_only": false
+        }
+      }
+    },
+    "baseline_calibrated": {
+      "variant_id": "baseline_calibrated",
+      "has_strict_set": false,
+      "has_basic_set": true,
+      "has_effective_operating_point": true,
+      "selection_status": "basic_only",
+      "points": {
+        "A_F1": {
+          "A": 0.6,
+          "selection_metric": "boundary_f1_tol10_mean",
+          "selection_metric_value": 0.04970258907890209,
+          "descriptive_only": false
+        },
+        "A_recall": {
+          "A": 0.1,
+          "selection_metric": "boundary_recall_tol10_mean",
+          "selection_metric_value": 0.27272727272727276,
+          "descriptive_only": false
+        }
+      }
+    },
+    "tec_uncalibrated": {
+      "variant_id": "tec_uncalibrated",
+      "has_strict_set": false,
+      "has_basic_set": false,
+      "has_effective_operating_point": false,
+      "selection_status": "constraint_failure",
+      "points": {
+        "A_descriptive_F1": {
+          "A": 0.7,
+          "selection_metric": "boundary_f1_tol10_mean",
+          "selection_metric_value": 0.06363191185472351,
+          "descriptive_only": true
+        },
+        "A_descriptive_recall": {
+          "A": 0.1,
+          "selection_metric": "boundary_recall_tol10_mean",
+          "selection_metric_value": 0.34848484848484845,
+          "descriptive_only": true
+        }
+      }
+    },
+    "tec_calibrated": {
+      "variant_id": "tec_calibrated",
+      "has_strict_set": false,
+      "has_basic_set": false,
+      "has_effective_operating_point": false,
+      "selection_status": "constraint_failure",
+      "points": {
+        "A_descriptive_F1": {
+          "A": 0.7,
+          "selection_metric": "boundary_f1_tol10_mean",
+          "selection_metric_value": 0.06363191185472351,
+          "descriptive_only": true
+        },
+        "A_descriptive_recall": {
+          "A": 0.1,
+          "selection_metric": "boundary_recall_tol10_mean",
+          "selection_metric_value": 0.34848484848484845,
+          "descriptive_only": true
+        }
+      }
+    }
+  },
+  "final_selection": {
+    "selection_status": "basic_selected",
+    "feasibility_layer": "basic",
+    "selected_variant": "baseline_uncalibrated",
+    "selected_point_type": "A_F1",
+    "selected_k": 0.6,
+    "validation_boundary_f1_tol10_mean": 0.04970258907890209,
+    "validation_macro_f1_mean": 0.6190675492990728,
+    "ranking": [
+      {
+        "variant_id": "baseline_uncalibrated",
+        "point_type": "A_F1",
+        "k": 0.6,
+        "boundary_f1_tol10_mean": 0.04970258907890209,
+        "macro_f1_mean": 0.6190675492990728
+      },
+      {
+        "variant_id": "baseline_calibrated",
+        "point_type": "A_F1",
+        "k": 0.6,
+        "boundary_f1_tol10_mean": 0.04970258907890209,
+        "macro_f1_mean": 0.6190285976675796
+      }
+    ]
+  },
+  "paper_fixed_k": 0.8,
+  "test_files_accessed": false,
+  "test_metrics_used": false,
+  "change_control": "This record is immutable before test. New test metrics cannot alter the selected family, probability source, or k."
+}

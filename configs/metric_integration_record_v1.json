@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "record_id": "metric_integration_record_v1",
+  "status": "complete",
+  "integration_date": "2026-07-20",
+  "authority": {
+    "protocol_id": "frozen_protocol_v2",
+    "protocol_path": "configs/frozen_protocol_v2.json"
+  },
+  "integrated_definitions": [
+    {
+      "config_id": "boundary_evaluation_v2",
+      "path": "configs/boundary_evaluation_v2.json",
+      "integrated_as": "rq2.boundary_evaluation",
+      "first_frozen_output": "outputs/frozen_multiseed_rq2_v2",
+      "provenance_complete_output": "outputs/frozen_multiseed_rq2_consistency_v2"
+    },
+    {
+      "config_id": "selective_prediction_evaluation_v2",
+      "path": "configs/selective_prediction_evaluation_v2.json",
+      "integrated_as": "rq1.selective_prediction",
+      "first_frozen_output": "outputs/multiseed_rq1_frozen_v2",
+      "provenance_complete_output": "outputs/multiseed_rq1_frozen_consistency_v2"
+    }
+  ],
+  "preservation_note": "The source definition files retain their pre-integration status strings because they had already been hashed by evidence-producing runs. This record documents their completed integration without editing those versioned source files in place."
+}

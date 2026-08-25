@@ -1,0 +1,100 @@
+{
+  "schema_version": 2,
+  "analysis": "mc_dropout_evaluation",
+  "status": "complete",
+  "created_at_utc": "2026-07-22T00:00:30.259948+00:00",
+  "script": {
+    "path": "E:\\AutoLaparoProject\\scripts\\08_eval_mc_dropout.py",
+    "sha256": "276a1dea92fa4187c5b898e723720e41f49b0dacf458aabc5dff275097b431fd",
+    "argv": [
+      "scripts\\08_eval_mc_dropout.py",
+      "--training_seed",
+      "1",
+      "--checkpoint",
+      "outputs\\v2_lstm_online_resnet18_seed01\\checkpoints\\best.pt",
+      "--out_dir",
+      "outputs\\rq1_mc_dropout_t30_seed01_v4",
+      "--T",
+      "30",
+      "--inference_seed",
+      "0",
+      "--splits",
+      "test",
+      "--windows",
+      "5",
+      "10",
+      "20",
+      "--mc_config",
+      "configs\\mc_dropout_evaluation_v4.json"
+    ]
+  },
+  "inputs": {
+    "features_dir": "E:\\AutoLaparoProject\\data\\features\\resnet18",
+    "checkpoint_path": "E:\\AutoLaparoProject\\outputs\\v2_lstm_online_resnet18_seed01\\checkpoints\\best.pt",
+    "checkpoint_sha256": "5fef8973ca150c051ca3158354781cc5ac65e4378b6b1c2b494a728292a26f9b",
+    "checkpoint_size_bytes": 2640817,
+    "training_seed": 1,
+    "checkpoint_epoch": 30,
+    "checkpoint_validation_macro_f1": 0.6528704605848746,
+    "checkpoint_selection_split": "val",
+    "checkpoint_selection_metric": "macro_f1",
+    "mc_config": {
+      "path": "E:\\AutoLaparoProject\\configs\\mc_dropout_evaluation_v4.json",
+      "sha256": "0a6613e63285b2794940d701c48b65e060e97754b655dfef00db0f408835c43f",
+      "config_id": "mc_dropout_evaluation_v4"
+    }
+  },
+  "protocol": {
+    "mc_passes": 30,
+    "inference_seed": 0,
+    "rng_scope": "reset_once_at_the_start_of_each_split",
+    "splits": [
+      "test"
+    ],
+    "boundary_windows_seconds": [
+      5,
+      10,
+      20
+    ],
+    "dropout_mode": "model_eval_with_nn_dropout_modules_enabled",
+    "error_definition": "Incorrect MC-averaged argmax prediction is positive.",
+    "risk_coverage_definition": "Exact empirical coverage k/N for k=1..N with expected risk within exact score ties.",
+    "aurc_definition": "Mean empirical selective risk over all retained counts k=1..N."
+  },
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "torch": "2.6.0+cu124",
+    "device": "cuda",
+    "cuda_available": true,
+    "cuda_version": "12.4",
+    "cudnn_version": 90100,
+    "determinism_note": "The RNG seed is fixed. Exact cross-platform or cross-version bitwise reproducibility is not guaranteed for all accelerator kernels."
+  },
+  "runtime": {
+    "wall_clock_seconds": 11.368327500000305,
+    "mc_inference_seconds": 7.782411000000138,
+    "timing_definition": "Per-video T-pass inference including probability transfer and MC score construction, measured with CUDA synchronisation."
+  },
+  "code_dependencies": [
+    {
+      "path": "E:\\AutoLaparoProject\\scripts\\selective_prediction_metrics.py",
+      "sha256": "911816766fdf91b2093f5b4b112107524e20e086e658823be5fca5860fdd6d41"
+    },
+    {
+      "path": "E:\\AutoLaparoProject\\scripts\\reproducibility_utils.py",
+      "sha256": "b79ce36a1c992e4645bc7677129d7ae0a4b0eb7e1a87c20715e98807dd5a8c32"
+    }
+  ],
+  "outputs": [
+    "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed01_v4\\mc_dropout_frame_scores.csv",
+    "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed01_v4\\mc_dropout_phase_metrics.csv",
+    "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed01_v4\\mc_dropout_near_far_boundary_table.csv",
+    "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed01_v4\\mc_dropout_auc_summary.csv",
+    "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed01_v4\\mc_dropout_risk_coverage.csv",
+    "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed01_v4\\mc_dropout_risk_coverage_full.csv",
+    "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed01_v4\\mc_dropout_risk_coverage_aurc.csv",
+    "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed01_v4\\mc_dropout_metrics_by_video.csv",
+    "E:\\AutoLaparoProject\\outputs\\rq1_mc_dropout_t30_seed01_v4\\mc_dropout_runtime_by_video.csv"
+  ]
+}

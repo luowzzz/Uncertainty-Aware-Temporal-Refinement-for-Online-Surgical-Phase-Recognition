@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "config_id": "selective_prediction_evaluation_v2",
+  "status": "implemented_and_unit_tested_pending_final_protocol_integration",
+  "score_direction": "lower_score_is_more_reliable",
+  "error_definition": "Incorrect prediction is the positive error event.",
+  "coverage_definition": "For N evaluated samples, empirical coverage is k/N for every retained count k from 1 to N.",
+  "tie_handling": "Within an exact score tie group, expected cumulative error is used so AURC is invariant to input row order.",
+  "aurc_definition": "Mean empirical selective risk over all retained counts k=1..N, equivalent to a right-Riemann integral over coverage (0,1].",
+  "key_coverages": [0.1, 0.3, 0.5, 0.6, 0.8, 0.9, 1.0],
+  "reported_summary_metrics": [
+    "aurc",
+    "oracle_aurc",
+    "excess_aurc",
+    "risk_at_key_coverages",
+    "full_coverage_error_rate"
+  ],
+  "legacy_definitions": {
+    "scripts/07_eval_risk_coverage.py": "Previously integrated a discrete curve from 0.10 to 1.00.",
+    "scripts/14_analyze_uncertainty_error_risk.py": "Previously integrated a discrete curve from 0.05 to 1.00.",
+    "preserved_outputs_are_not_overwritten": true
+  },
+  "implementation": "scripts/selective_prediction_metrics.py",
+  "tests": "tests/test_reproducibility_hardening.py"
+}

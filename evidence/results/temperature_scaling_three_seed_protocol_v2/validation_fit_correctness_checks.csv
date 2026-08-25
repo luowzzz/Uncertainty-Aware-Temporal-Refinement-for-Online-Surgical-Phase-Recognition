@@ -1,0 +1,4 @@
+training_seed,split,raw_vs_scaled_argmax_identical,raw_probability_max_sum_error,scaled_probability_max_sum_error,frame_logit_label_lengths_aligned,validation_nll_non_increasing
+0,val,True,5.551115123125783e-16,6.661338147750939e-16,True,True
+1,val,True,5.551115123125783e-16,5.551115123125783e-16,True,True
+2,val,True,6.661338147750939e-16,6.661338147750939e-16,True,True

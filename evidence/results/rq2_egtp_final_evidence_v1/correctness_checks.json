@@ -1,0 +1,18 @@
+{
+  "frozen_hashes_validated_before_test_load": true,
+  "test_used_for_selection_or_retuning": false,
+  "selected_family": {
+    "method_id": "egtp_selected",
+    "model_family": "baseline",
+    "probability_source": "uncalibrated",
+    "k": 0.6,
+    "selection_layer": "basic",
+    "selection_point_type": "A_F1"
+  },
+  "tec_not_resurrected_after_validation_failure": true,
+  "calibrated_vs_uncalibrated_selected_egtp_mismatch_frames": 12,
+  "timeline_plots": [
+    "E:\\AutoLaparoProject\\outputs\\rq2_egtp_final_evidence_v1\\timelines\\timeline_seed00_video20.png",
+    "E:\\AutoLaparoProject\\outputs\\rq2_egtp_final_evidence_v1\\timelines\\timeline_seed00_video18.png"
+  ]
+}

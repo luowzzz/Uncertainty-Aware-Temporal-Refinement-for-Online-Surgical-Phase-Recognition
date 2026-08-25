@@ -1,0 +1,208 @@
+{
+  "schema_version": 3,
+  "protocol_id": "frozen_protocol_v3",
+  "status": "authoritative_for_thesis_writing",
+  "supersedes_project_level_authority": "frozen_protocol_v2",
+  "effective_date": "2026-07-31",
+  "change_scope": "Project-level evidence consolidation after completion of the final RQ1 and EGTP-based RQ2 analyses. Earlier frozen selection and test protocols remain immutable provenance.",
+  "thesis_title": "Uncertainty-Aware Temporal Refinement for Online Surgical Phase Recognition",
+  "evidence_status": "traceable_three_seed_iterative_development_evidence_not_independent_confirmatory_test",
+  "test_exposure": {
+    "already_inspected_during_iterative_development": true,
+    "test_not_used_for_the_final_frozen_RQ1_or_RQ2_parameter_selection": true,
+    "required_wording": "The final three-seed analyses are treated as iterative-development evidence because the test split had been inspected earlier in the project."
+  },
+  "data": {
+    "dataset": "AutoLaparo-T1",
+    "sampling_rate_fps": 1,
+    "splits": {
+      "train": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "validation": [
+        "11",
+        "12",
+        "13",
+        "14"
+      ],
+      "test": [
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21"
+      ]
+    },
+    "training_seeds": [
+      0,
+      1,
+      2
+    ]
+  },
+  "baseline": {
+    "configuration": {
+      "path": "configs/baseline_training_v1.json",
+      "sha256": "e46c0ecf33ae0aebfa641dba74454daa0a466acd1d50e12507da8fc8799578cf"
+    },
+    "architecture": "ResNet-18 visual features followed by a unidirectional LSTM and a seven-class phase classifier",
+    "checkpoint_selection": "One best checkpoint per training seed, selected only by validation macro-F1",
+    "training_or_checkpoint_change_after_final_evidence": false
+  },
+  "rq1": {
+    "research_question": "Can probability-based uncertainty identify unreliable online surgical phase predictions, particularly near genuine transitions?",
+    "authority": {
+      "configuration": {
+        "path": "configs/rq1_final_evidence_v2.json",
+        "sha256": "228ccf898e38628941dbe02ef38948dde3dd1e446c0e7b89409b5806efa6afc5"
+      },
+      "manifest": {
+        "path": "outputs/rq1_final_evidence_v2/run_manifest.json",
+        "sha256": "2711c71e4ae28b09577eb25eb1f6f325ddb7474f15bff773c55cacb1a7959f7e"
+      }
+    },
+    "primary_metrics": {
+      "overall_error_detection": [
+        "AUROC",
+        "AUPR",
+        "Exact AURC"
+      ],
+      "transition_conditioned_error_detection": [
+        "near/far AUROC",
+        "near/far AUPR"
+      ],
+      "primary_transition_window_sec": 10,
+      "calibration": [
+        "NLL",
+        "ECE-15"
+      ]
+    },
+    "supporting_metrics": [
+      "multiclass Brier score",
+      "+/-5 s and +/-20 s transition-window sensitivity",
+      "risk-coverage curves",
+      "reliability diagrams"
+    ],
+    "protocol_evidence_not_headline_results": [
+      "MC Dropout T convergence and runtime",
+      "checkpoint and inference hashes"
+    ],
+    "secondary_analysis": [
+      "boundary-proximity AUROC/AUPR"
+    ],
+    "core_conclusion": "Uncertainty identifies errors overall, but conditional error discrimination is only modest near true transitions; Temperature Scaling improves probability reliability without changing phase labels."
+  },
+  "rq2": {
+    "research_question": "How do fixed-duration persistence and adaptive probability-evidence accumulation affect temporal stability, phase-recognition performance, and genuine-transition sensitivity in a lightweight online surgical phase recognition model?",
+    "method_source": {
+      "name": "Evidence-Gated Transition Predictor",
+      "citation": "Liu et al., Stabilizing Temporal Inference Dynamics for Online Surgical Phase Recognition, 2026",
+      "arxiv": "https://arxiv.org/abs/2605.16387",
+      "status_checked_2026_07_31": "Early accepted by MICCAI 2026",
+      "project_positioning": "Independent deterministic reimplementation and backbone-transfer evaluation, not an official-code reproduction or a newly invented method."
+    },
+    "frozen_authorities": {
+      "validation_protocol": {
+        "path": "configs/rq2_egtp_validation_protocol_v1.json",
+        "sha256": "c6b35979060ccc7a2cdb32b518d293d22b70efe7e45f8adb34e2f441b7ecf92d"
+      },
+      "validation_selection": {
+        "path": "configs/rq2_egtp_validation_selection_v1.json",
+        "sha256": "19af72b873c650ac859b16b8d302915d900f517c5af946636d6d645927643cc5"
+      },
+      "test_protocol": {
+        "path": "configs/rq2_egtp_test_protocol_v1.json",
+        "sha256": "c1fe10c5e12a5d19abfa08faad98e2eb9d222ed6e4aefed276bc77ba95e2dc96"
+      },
+      "final_evidence_manifest": {
+        "path": "outputs/rq2_egtp_final_evidence_v1/run_manifest.json",
+        "sha256": "400115594d3495ec726aaafa1e9f918388ea9d3c2604ae3f554bbd5fd035d82d"
+      }
+    },
+    "main_comparison": [
+      {
+        "method_id": "baseline_raw",
+        "role": "memoryless baseline"
+      },
+      {
+        "method_id": "persistence_5",
+        "role": "predefined simple fixed-duration causal comparator"
+      },
+      {
+        "method_id": "egtp_selected",
+        "role": "validation-selected adaptive probability-evidence method",
+        "probability_source": "uncalibrated",
+        "k": 0.6,
+        "selection_layer": "basic because the strict set was empty"
+      }
+    ],
+    "primary_metrics": [
+      "Macro-F1",
+      "Boundary Precision at +/-10 s",
+      "Boundary Recall at +/-10 s",
+      "Boundary F1 at +/-10 s",
+      "predicted boundary count"
+    ],
+    "supporting_metrics": [
+      "Accuracy",
+      "Boundary Precision/Recall/F1 at +/-5 s",
+      "matched signed delay and absolute error",
+      "matched/missed/extra boundary counts",
+      "video-cluster bootstrap intervals, interpreted descriptively"
+    ],
+    "secondary_metrics": {
+      "TFI": "Useful paper-derived fragmentation indicator; never interpreted without Macro-F1, Boundary Recall and predicted boundary count.",
+      "Edit Score": "Literature-comparison metric that may reward over-smoothing.",
+      "transition_type_correctness": {
+        "role": "post-hoc conditional descriptive audit only",
+        "configuration": {
+          "path": "configs/rq2_egtp_transition_type_audit_v1.json",
+          "sha256": "301ab6ea1a1a7941aa4c5b0d8bc505037ff4adeb379b19c0f0a5d0caddcd4f67"
+        },
+        "manifest": {
+          "path": "outputs/rq2_egtp_transition_type_audit_v1/run_manifest.json",
+          "sha256": "ee1e02984aeeefad6aacb83ff294203d0a34851c2a23e81caee20168fd887cba"
+        }
+      }
+    },
+    "appendix_only_ablations": [
+      "validation-selected recall point k=0.1",
+      "paper-fixed AutoLaparo setting k=0.8",
+      "temperature-scaled EGTP",
+      "TEC and TEC+EGTP constraint-failure results",
+      "per-seed and per-video tables"
+    ],
+    "implementation_conventions_not_defined_by_the_paper": {
+      "initial_std": 1.0,
+      "running_standard_deviation": "Welford population standard deviation",
+      "std_floor": 1E-06
+    },
+    "core_conclusion": "Both causal post-processors reduce fragmentation. EGTP gives the strongest smoothing, whereas Persistence-5 gives the best overall frame/boundary balance; adaptive smoothing therefore does not remove the stability-transition-sensitivity trade-off on this lightweight backbone."
+  },
+  "thesis_core_exclusions": [
+    "legacy exploratory multi-threshold gate",
+    "project-specific cumulative Gate v1/v2 as a final method",
+    "OOD experiments",
+    "new uncertainty methods",
+    "near/far AURC",
+    "ECE-10/20 claims",
+    "test-informed retuning",
+    "additional baseline or TEC retraining"
+  ],
+  "change_control": {
+    "legacy_files_are_preserved": true,
+    "no_existing_frozen_protocol_is_rewritten": true,
+    "new_test_results_may_not_change_methods_parameters_or_metric_hierarchy": true,
+    "new_experiments_require_explicit_supervisor_scope_change": true
+  }
+}

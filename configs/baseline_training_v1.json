@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "config_id": "baseline_training_v1",
+  "status": "frozen_after_multiseed_evidence_review",
+  "decision_date": "2026-07-20",
+  "architecture": {
+    "feature_extractor": "frozen ResNet-18 features",
+    "feature_dimension": 512,
+    "temporal_model": "unidirectional LSTM",
+    "input_projection_dimension": 256,
+    "hidden_dimension": 256,
+    "num_layers": 1,
+    "dropout": 0.3,
+    "num_classes": 7,
+    "bidirectional": false
+  },
+  "training": {
+    "epochs": 40,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "training_seeds": [
+      0,
+      1,
+      2
+    ],
+    "sampling_rate_fps": 1,
+    "loss": "class-weighted cross entropy",
+    "class_weight_formula": "inverse training frequency, total/(7*count), then divided by the mean weight",
+    "training_class_counts_label_0_to_6": [
+      739,
+      12957,
+      9841,
+      5814,
+      296,
+      6808,
+      3756
+    ],
+    "class_weights_label_0_to_6": [
+      1.7236462942,
+      0.0983078345,
+      0.1294354854,
+      0.2190874805,
+      4.3032926062,
+      0.1870996785,
+      0.3391306207
+    ]
+  },
+  "checkpoint_selection": {
+    "split": "val",
+    "metric": "macro_f1",
+    "direction": "maximise",
+    "test_used": false,
+    "selected_epochs_by_training_seed": {
+      "0": 36,
+      "1": 30,
+      "2": 36
+    },
+    "selected_validation_macro_f1_by_training_seed": {
+      "0": 0.6282723508,
+      "1": 0.6528704606,
+      "2": 0.5610641107
+    }
+  },
+  "freeze_decision": {
+    "freeze_now": true,
+    "reason": [
+      "All RQ1 and RQ2 evidence is already anchored to this baseline family and these checkpoints.",
+      "Every best checkpoint occurred before epoch 40, so the epoch budget did not truncate the selected solution.",
+      "Validation performance declines after the best epoch in all three seeds, showing that validation checkpoint selection is necessary and that simply extending training is not justified.",
+      "Three training seeds already expose meaningful optimisation variability.",
+      "Changing architecture, loss weighting or optimiser settings now would invalidate the current uncertainty and refinement evidence and create a different baseline version."
+    ],
+    "exception_rule": "Any later baseline change requires a new versioned configuration and a complete rerun of RQ1 and RQ2. It must not be selected in response to test results."
+  },
+  "evidence_status": "traceable_iterative_development_result"
+}

@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "config_id": "rq2_egtp_test_protocol_v1",
+  "status": "frozen_before_new_test_evaluation",
+  "research_question": "Can a causal evidence-gated transition policy improve temporal stability in online surgical phase recognition while preserving frame-level performance and transition sensitivity?",
+  "frozen_validation_protocol": {
+    "path": "configs\\rq2_egtp_validation_protocol_v1.json",
+    "sha256": "c6b35979060ccc7a2cdb32b518d293d22b70efe7e45f8adb34e2f441b7ecf92d"
+  },
+  "frozen_validation_selection": {
+    "path": "configs\\rq2_egtp_validation_selection_v1.json",
+    "sha256": "19af72b873c650ac859b16b8d302915d900f517c5af946636d6d645927643cc5"
+  },
+  "evaluation_split": "test",
+  "evaluation_video_ids": [
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21"
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "primary_method": {
+    "method_id": "egtp_selected",
+    "model_family": "baseline",
+    "probability_source": "uncalibrated",
+    "k": 0.6,
+    "selection_layer": "basic",
+    "selection_point_type": "A_F1"
+  },
+  "frozen_ablation_methods": [
+    {
+      "method_id": "baseline_raw",
+      "model_family": "baseline",
+      "kind": "raw",
+      "probability_source": "uncalibrated"
+    },
+    {
+      "method_id": "persistence_5",
+      "model_family": "baseline",
+      "kind": "causal_persistence",
+      "min_run_sec": 5
+    },
+    {
+      "method_id": "egtp_recall_point",
+      "model_family": "baseline",
+      "kind": "egtp",
+      "probability_source": "uncalibrated",
+      "k": 0.1,
+      "role": "validation_selected_recall_preserving_supplement"
+    },
+    {
+      "method_id": "egtp_selected",
+      "model_family": "baseline",
+      "kind": "egtp",
+      "probability_source": "uncalibrated",
+      "k": 0.6,
+      "role": "primary_validation_selected_method"
+    },
+    {
+      "method_id": "egtp_paper_k0p8",
+      "model_family": "baseline",
+      "kind": "egtp",
+      "probability_source": "uncalibrated",
+      "k": 0.8,
+      "role": "paper_fixed_autolaparo_threshold"
+    },
+    {
+      "method_id": "egtp_selected_calibrated",
+      "model_family": "baseline",
+      "kind": "egtp",
+      "probability_source": "temperature_scaled",
+      "k": 0.6,
+      "role": "calibration_scale_invariance_ablation"
+    },
+    {
+      "method_id": "tec_raw",
+      "model_family": "tec",
+      "kind": "raw",
+      "probability_source": "uncalibrated",
+      "role": "training_level_optimisation_ablation"
+    },
+    {
+      "method_id": "tec_egtp_paper_k0p8",
+      "model_family": "tec",
+      "kind": "egtp",
+      "probability_source": "uncalibrated",
+      "k": 0.8,
+      "role": "complete_paper_parameter_ablation_not_a_valid_operating_point"
+    }
+  ],
+  "baseline_checkpoints": {
+    "0": {
+      "path": "outputs\\v2_lstm_online_resnet18_seed00\\checkpoints\\best.pt",
+      "sha256": "47dca8f3f08e4ac862e12abd0d1a07676654068e1e61c3b402f7a9f1b2451fa4"
+    },
+    "1": {
+      "path": "outputs\\v2_lstm_online_resnet18_seed01\\checkpoints\\best.pt",
+      "sha256": "5fef8973ca150c051ca3158354781cc5ac65e4378b6b1c2b494a728292a26f9b"
+    },
+    "2": {
+      "path": "outputs\\v2_lstm_online_resnet18_seed02\\checkpoints\\best.pt",
+      "sha256": "6a4c14b755d26e13b082b724f07bde0755781b67e062c166708cd7600cbaae52"
+    }
+  },
+  "tec_checkpoints": {
+    "0": {
+      "path": "outputs\\rq2_tec_lstm_seed00_v1\\checkpoints\\best.pt",
+      "sha256": "9eea970f349c245f6fb4e3b55049fabe5e5f7ec5343c7715240d5e4d1b0912d7"
+    },
+    "1": {
+      "path": "outputs\\rq2_tec_lstm_seed01_v1\\checkpoints\\best.pt",
+      "sha256": "cb4c18103a09aa42165ba5e204c8d25a77154e9e19b757b6b57a0ef295053d0e"
+    },
+    "2": {
+      "path": "outputs\\rq2_tec_lstm_seed02_v1\\checkpoints\\best.pt",
+      "sha256": "f332915de580e246b4c7eec712bf66993066ae9ce7d3fdf69b33d0bf768bb670"
+    }
+  },
+  "temperatures": {
+    "baseline": {
+      "0": 1.5745263192066064,
+      "1": 1.3628182139390264,
+      "2": 1.6216914143133154
+    },
+    "tec": {
+      "0": 1.1268665214144176,
+      "1": 0.9672218538779603,
+      "2": 1.2285584747753808
+    }
+  },
+  "evaluation": {
+    "boundary_matching": "optimal_ordered_one_to_one",
+    "boundary_tolerances_sec": [
+      5,
+      10
+    ],
+    "paired_video_cluster_bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260729
+  },
+  "selection_guard": {
+    "test_must_not_select_or_modify_method": true,
+    "test_must_not_change_k": true,
+    "test_must_not_resurrect_tec_if_validation_constraints_failed": true
+  },
+  "evidence_status": "three-seed iterative-development evidence because the test split had been inspected during earlier project development"
+}
